@@ -168,6 +168,11 @@ export default function SharedCoursePage() {
         }
         
         setCourse(unifiedCourse)
+        
+        // Check if course is already saved by current user
+        if (courseData.savedCourses && courseData.savedCourses.length > 0) {
+          setIsCourseSaved(true)
+        }
 
         // Set the first lesson as current lesson from the unified structure
         if (unifiedCourse.items && unifiedCourse.items.length > 0) {
@@ -546,11 +551,11 @@ export default function SharedCoursePage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Navbar */}
-      <Navbar 
-        showSaveButton={!!currentUser && !!course}
-        onSaveCourse={handleSaveCourse}
-        isCourseSaved={isCourseSaved}
-      />
+              <Navbar 
+          showSaveButton={!!currentUser && !!course && !isCourseSaved}
+          onSaveCourse={handleSaveCourse}
+          isCourseSaved={isCourseSaved}
+        />
 
       {/* Save Message */}
       {saveMessage && (

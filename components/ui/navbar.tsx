@@ -23,6 +23,7 @@ export function Navbar({
   isCourseSaved = false
 }: NavbarProps) {
   const [currentUser, setCurrentUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
 
   // Check if we're in edit/create mode (create-course page)
@@ -47,6 +48,8 @@ export function Navbar({
       } catch (error) {
         console.error('Error fetching user:', error);
         setCurrentUser(null);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -55,11 +58,13 @@ export function Navbar({
     // Refetch user data when page becomes visible or window gains focus (e.g., after sign-in)
     const handleVisibilityChange = () => {
       if (!document.hidden) {
+        setIsLoading(true);
         fetchCurrentUser();
       }
     };
 
     const handleFocus = () => {
+      setIsLoading(true);
       fetchCurrentUser();
     };
 
@@ -84,7 +89,7 @@ export function Navbar({
         {/* Right Area - Action Button + Avatar */}
         <div className="flex items-center gap-4">
           {actionButton}
-          {currentUser ? (
+          {!isLoading && currentUser ? (
             <>
               {/* Show save button for shared courses */}
               {showSaveButton && onSaveCourse && (
@@ -123,7 +128,7 @@ export function Navbar({
               )}
               <UserAvatar user={currentUser} size="sm" />
             </>
-          ) : (
+          ) : !isLoading ? (
             /* Show sign-in button when user is not authenticated */
             <Button
               size="sm"
@@ -135,7 +140,7 @@ export function Navbar({
             >
               Sign In
             </Button>
-          )}
+          ) : null}
         </div>
       </div>
     </header>

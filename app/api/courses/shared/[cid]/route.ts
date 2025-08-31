@@ -77,7 +77,13 @@ export async function GET(
               }
             }
           } : undefined
-        }
+        },
+        // Include saved course information if user is authenticated
+        savedCourses: session && session.userId ? {
+          where: {
+            user_id: Number(session.userId)
+          }
+        } : undefined
       }
     })
 
