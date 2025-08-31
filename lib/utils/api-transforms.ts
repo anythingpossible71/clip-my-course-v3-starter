@@ -231,7 +231,7 @@ export function transformCourseForResponse(course: {
 }): {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   thumbnail: string | null;
   isPublished: boolean;
   isFree: boolean;
@@ -259,14 +259,14 @@ export function transformCourseForResponse(course: {
   sections?: Array<{
     id: string;
     title: string;
-    description: string;
+    description?: string;
     orderIndex: number;
     totalDuration: number;
     totalLessons: number;
               lessons: Array<{
             id: string;
             title: string;
-            description: string;
+            description?: string;
             orderIndex: number;
             videoUrl: string;
             videoId: string;
@@ -281,7 +281,7 @@ export function transformCourseForResponse(course: {
   lessons?: Array<{
     id: string;
     title: string;
-    description: string;
+    description?: string;
     orderIndex: number;
     videoUrl: string;
     videoId: string;
@@ -311,7 +311,7 @@ export function transformCourseForResponse(course: {
   return {
     id: encodeId(course.id),
     title: course.title,
-    description: course.description || "",
+    description: course.description || undefined,
     thumbnail: firstLessonThumbnail,
     isPublished: course.is_published,
     isFree: course.is_free,
@@ -342,14 +342,14 @@ export function transformCourseForResponse(course: {
       ? course.sections.map((section) => ({
           id: encodeId(section.id),
           title: section.title,
-          description: section.description,
+          description: section.description || undefined,
           orderIndex: section.order_index,
           totalDuration: section.lessons.reduce((total, lesson) => total + lesson.duration, 0),
           totalLessons: section.lessons.length,
                       lessons: section.lessons.map((lesson) => ({
               id: encodeId(lesson.id),
               title: lesson.title,
-              description: lesson.description,
+              description: lesson.description || undefined,
               orderIndex: lesson.order_index,
               videoUrl: lesson.video_url,
               videoId: lesson.video_id,
@@ -366,7 +366,7 @@ export function transformCourseForResponse(course: {
       ? course.lessons.map((lesson) => ({
           id: encodeId(lesson.id),
           title: lesson.title,
-          description: lesson.description,
+          description: lesson.description || undefined,
           orderIndex: lesson.order_index,
           videoUrl: lesson.video_url,
           videoId: lesson.video_id,

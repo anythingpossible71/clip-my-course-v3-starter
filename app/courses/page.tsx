@@ -17,7 +17,7 @@ import { formatDuration } from "@/lib/utils/course-helpers"
 interface Course {
   id: string
   title: string
-  description: string
+  description?: string
   thumbnail: string
   totalLessons: number
   totalDuration: number
@@ -40,14 +40,14 @@ interface Course {
   sections?: Array<{
     id: string
     title: string
-    description: string
+    description?: string
     orderIndex: number
     totalDuration: number
     totalLessons: number
     lessons: Array<{
       id: string
       title: string
-      description: string
+      description?: string
       orderIndex: number
       videoUrl: string
       videoId: string
@@ -62,7 +62,7 @@ interface Course {
   lessons?: Array<{
     id: string
     title: string
-    description: string
+    description?: string
     orderIndex: number
     videoUrl: string
     videoId: string

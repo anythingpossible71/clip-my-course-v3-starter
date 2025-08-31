@@ -123,6 +123,10 @@ export function AddVideoModal({ isOpen, onClose, onAddVideo, onAddPlaylistVideos
         setPlaylistData(data)
         // Select all videos by default
         setSelectedVideos(data.videos.map((video: any) => video.videoId))
+        // Suggest playlist title as section title when creating a new section
+        if (level === 0 && createSection) {
+          setSectionTitle(data.playlist.title)
+        }
         return
       }
 
@@ -319,6 +323,21 @@ export function AddVideoModal({ isOpen, onClose, onAddVideo, onAddPlaylistVideos
                 </AlertDescription>
               </Alert>
 
+              {/* Playlist Information */}
+              <div className="flex items-start gap-3 p-3 border rounded-lg bg-muted/30">
+                <img 
+                  src={playlistData.playlist.thumbnail} 
+                  alt={playlistData.playlist.title}
+                  className="w-16 h-12 object-cover rounded flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-medium text-sm line-clamp-2">{playlistData.playlist.title}</h4>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    by {playlistData.playlist.channelTitle} • {playlistData.videos.length} videos
+                  </p>
+                </div>
+              </div>
+
               {/* Section Creation Option - Only show when not already in a section */}
               {level === 0 && (
                 <div className="space-y-3">
@@ -336,12 +355,31 @@ export function AddVideoModal({ isOpen, onClose, onAddVideo, onAddPlaylistVideos
                   {createSection && (
                     <div className="grid gap-2">
                       <Label htmlFor="section-title">Section Title</Label>
-                      <Input
-                        id="section-title"
-                        placeholder="Enter section title..."
-                        value={sectionTitle}
-                        onChange={(e) => setSectionTitle(e.target.value)}
-                      />
+                      <div className="flex gap-2">
+                        <Input
+                          id="section-title"
+                          placeholder="Enter section title..."
+                          value={sectionTitle}
+                          onChange={(e) => setSectionTitle(e.target.value)}
+                          className="flex-1"
+                        />
+                        {playlistData && sectionTitle !== playlistData.playlist.title && (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setSectionTitle(playlistData.playlist.title)}
+                            className="whitespace-nowrap"
+                          >
+                            Use Playlist Name
+                          </Button>
+                        )}
+                      </div>
+                      {playlistData && sectionTitle === playlistData.playlist.title && (
+                        <p className="text-xs text-muted-foreground">
+                          💡 Suggested from playlist: "{playlistData.playlist.title}"
+                        </p>
+                      )}
                     </div>
                   )}
                 </div>

@@ -14,7 +14,7 @@ import { useToast } from "@/hooks/use-toast"
 interface Lesson {
   id: string
   title: string
-  description: string
+  description?: string
   orderIndex: number
   videoUrl: string
   videoId: string
@@ -27,7 +27,7 @@ interface Lesson {
 interface Section {
   id: string
   title: string
-  description: string
+  description?: string
   orderIndex: number
   totalDuration: number
   totalLessons: number
@@ -37,7 +37,7 @@ interface Section {
 interface Course {
   id: string
   title: string
-  description: string
+  description?: string
   thumbnail: string | null
   isPublished: boolean
   isFree: boolean
@@ -128,7 +128,13 @@ export default function SharedCoursePage() {
         const response = await fetch(`/api/courses/shared/${courseId}`)
         
         if (!response.ok) {
-          throw new Error('Course not found or not shared')
+          if (response.status === 410) {
+            // Course was deleted
+            const errorData = await response.json()
+            throw new Error('This course has been deleted by the curator')
+          } else {
+            throw new Error('Course not found or not shared')
+          }
         }
 
         const courseData = await response.json()

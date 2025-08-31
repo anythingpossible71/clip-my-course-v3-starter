@@ -19,7 +19,7 @@ import { Navbar } from "@/components/ui/navbar"
 interface Lesson {
   id: string
   title: string
-  description: string
+  description?: string
   orderIndex: number
   videoUrl: string
   videoId: string
@@ -32,7 +32,7 @@ interface Lesson {
 interface Section {
   id: string
   title: string
-  description: string
+  description?: string
   orderIndex: number
   totalDuration: number
   totalLessons: number
@@ -42,7 +42,7 @@ interface Section {
 interface Course {
   id: string
   title: string
-  description: string
+  description?: string
   thumbnail: string | null
   isPublished: boolean
   isFree: boolean

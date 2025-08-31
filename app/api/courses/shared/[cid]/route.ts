@@ -56,6 +56,7 @@ export async function GET(
       where: {
         sharedCourseId: cid,
         isShared: true,
+        deleted_at: null, // Only show non-deleted courses
       },
       include: {
         creator: {
@@ -109,6 +110,24 @@ export async function GET(
 
     if (!course) {
       console.log(`❌ Course not found with sharedCourseId: ${cid}`)
+      
+      // Check if the course exists but is deleted
+      const deletedCourse = await prisma.course.findFirst({
+        where: {
+          sharedCourseId: cid,
+          deleted_at: { not: null }
+        }
+      })
+      
+      if (deletedCourse) {
+        console.log(`📝 Course was deleted: ${cid}`)
+        return NextResponse.json({ 
+          error: 'This course has been deleted by the curator',
+          deleted: true,
+          message: 'This course is no longer available'
+        }, { status: 410 }) // 410 Gone - resource was deleted
+      }
+      
       return NextResponse.json({ error: 'Course not found or not shared' }, { status: 404 })
     }
 

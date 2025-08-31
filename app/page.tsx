@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowRight, Video, Share2, BarChart3, Play, Focus } from 'lucide-react'
+import { ArrowRight, Video, Share2, BarChart3, Play, Focus, Copy, Edit, CheckCircle } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -16,18 +16,21 @@ export default function HomePage() {
                 src="/applogo.png" 
                 alt="ClipMyCourse" 
                 width={32} 
-                height={32} 
-                className="mr-3"
+                height={32}
+                className="w-8 h-8"
               />
-              <span className="text-xl font-bold text-gray-900">ClipMyCourse</span>
             </div>
             <div className="flex items-center space-x-4">
-              <Button asChild variant="ghost">
-                <Link href="/auth/signin">Sign In</Link>
-              </Button>
-              <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
-                <Link href="/auth/signup">Get Started</Link>
-              </Button>
+              <Link href="/auth/signin">
+                <Button variant="ghost" className="text-gray-700 hover:text-red-600">
+                  Sign In
+                </Button>
+              </Link>
+              <Link href="/create-course">
+                <Button className="bg-red-600 hover:bg-red-700 text-white">
+                  Clip a course
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -35,164 +38,154 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Turn YouTube Playlists
-              <br />
-              <span className="text-red-600">Into Focused Courses</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Turn YouTube videos into online courses
             </h1>
-            
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Transform any YouTube video playlist into a distraction-free learning experience. 
-              Stay focused without YouTube's distractions and track your progress.
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress takes just a few clicks.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white">
-                <Link href="/auth/signup">
-                  Start Creating
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/auth/signin">
-                  Sign In
-                </Link>
-              </Button>
+            <div className="flex justify-center">
+              <Link href="/create-course">
+                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg">
+                  Clip a course
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              How It Works
+              Create your course in seconds
             </h2>
             <p className="text-lg text-gray-600">
-              Three simple steps to create your focused learning experience
+              Simple steps to transform any YouTube content into a structured learning experience
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border border-gray-200 shadow-sm">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Play className="w-6 h-6 text-red-600" />
+            <Card className="text-center border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Copy className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle>1. Paste YouTube Link</CardTitle>
-                <CardDescription>
-                  Simply paste any YouTube video or playlist URL you want to learn from.
-                </CardDescription>
+                <CardTitle className="text-xl">1. Paste a YouTube link</CardTitle>
               </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Simply copy and paste any YouTube video or playlist URL
+                </p>
+              </CardContent>
             </Card>
-            
-            <Card className="border border-gray-200 shadow-sm">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Video className="w-6 h-6 text-red-600" />
+
+            <Card className="text-center border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Edit className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle>2. Auto-Create & Share</CardTitle>
-                <CardDescription>
-                  We automatically extract videos, organize them, and create a shareable course.
-                </CardDescription>
+                <CardTitle className="text-xl">2. Edit and create your course</CardTitle>
               </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Organize videos into sections and customize your course structure
+                </p>
+              </CardContent>
             </Card>
-            
-            <Card className="border border-gray-200 shadow-sm">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-6 h-6 text-red-600" />
+
+            <Card className="text-center border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle>3. Track Progress</CardTitle>
-                <CardDescription>
-                  Mark lessons complete and see your learning progress without distractions.
-                </CardDescription>
+                <CardTitle className="text-xl">3. Track your progress</CardTitle>
               </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Monitor your learning journey with built-in progress tracking
+                </p>
+              </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 bg-white">
+      {/* Features Section */}
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Stay Focused, Learn Better
-            </h2>
-            <p className="text-lg text-gray-600">
-              Distraction-free learning from your favorite YouTube content
-            </p>
-          </div>
-          
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border border-gray-200 shadow-sm">
+            <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <Focus className="w-6 h-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle>No Distractions</CardTitle>
-                <CardDescription>
-                  Learn without YouTube's recommended videos, comments, and other distractions.
-                </CardDescription>
+                <CardTitle className="text-xl">Progress Tracking</CardTitle>
               </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Keep track of your learning progress with visual indicators and completion tracking for each lesson.
+                </p>
+              </CardContent>
             </Card>
-            
-            <Card className="border border-gray-200 shadow-sm">
+
+            <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <Share2 className="w-6 h-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                  <Share2 className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle>Share Your Learning</CardTitle>
-                <CardDescription>
-                  Generate a clean, shareable link to your course that anyone can access.
-                </CardDescription>
+                <CardTitle className="text-xl">Easy Sharing</CardTitle>
               </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Share your courses with friends, students, or the world. Generate shareable links instantly.
+                </p>
+              </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="py-16 bg-red-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Learn Without Distractions?
+            Ready to start learning?
           </h2>
           <p className="text-xl text-red-100 mb-8">
-            Turn any YouTube playlist into a focused learning experience.
+            Transform any YouTube content into a structured course in minutes
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100">
-            <Link href="/auth/signup">
-              Get Started Free
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <Link href="/create-course">
+            <Button size="lg" variant="secondary" className="px-8 py-3 text-lg">
+              Clip your first course
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 
-      {/* Simple Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <Image 
-              src="/applogo.png" 
-              alt="ClipMyCourse" 
-              width={32} 
-              height={32} 
-              className="mr-3"
-            />
-            <span className="text-lg font-semibold">ClipMyCourse</span>
-          </div>
-          <p className="text-gray-400">
-            Distraction-free learning from YouTube content
-          </p>
-          <div className="mt-4 text-sm text-gray-500">
-            <p>&copy; 2024 ClipMyCourse</p>
+      {/* Footer */}
+      <footer className="py-8 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center">
+              <Image 
+                src="/applogo.png" 
+                alt="ClipMyCourse" 
+                width={24} 
+                height={24}
+                className="w-6 h-6"
+              />
+              <span className="ml-2 text-gray-600">ClipMyCourse</span>
+            </div>
+            <div className="text-gray-500 text-sm">
+              © 2024 ClipMyCourse. All rights reserved.
+            </div>
           </div>
         </div>
       </footer>
