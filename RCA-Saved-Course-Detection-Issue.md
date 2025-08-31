@@ -123,3 +123,85 @@ The issue wasn't in the API query or session handling - it was in the transforma
 
 **Time to Resolution**: 65 minutes (could have been 15 minutes with correct initial approach)
 **Key Learning**: Always trace the actual code path, don't make assumptions about file structure or data types.
+
+## 🛡️ **RULE: Debugging Data Flow Issues**
+
+### **MANDATORY PRE-DEBUGGING CHECKLIST**
+
+**Before making ANY changes to fix data flow issues:**
+
+#### **1. Import Tracing (REQUIRED)**
+```bash
+# Find ALL imports of the function you're about to modify
+grep -r "import.*functionName" app/ lib/ components/
+# OR
+grep -r "from.*filePath" app/ lib/ components/
+```
+**Rule**: Never modify a function without knowing ALL places it's imported
+
+#### **2. Data Flow Mapping (REQUIRED)**
+```
+Database → API Route → Transformation Function → Frontend
+```
+**Rule**: Add debug logs at EACH step before making changes:
+```typescript
+// Step 1: Database query
+console.log('🔍 Database result:', data);
+
+// Step 2: API route
+console.log('🔍 API response:', response);
+
+// Step 3: Transformation
+console.log('🔍 Before transform:', input);
+console.log('🔍 After transform:', output);
+
+// Step 4: Frontend
+console.log('🔍 Frontend received:', props);
+```
+
+#### **3. Type Verification (REQUIRED)**
+```typescript
+// Check function signatures
+console.log('🔍 Function input type:', typeof input);
+console.log('🔍 Function output type:', typeof output);
+
+// Check session data
+console.log('🔍 Session type:', typeof session.userId);
+console.log('🔍 Session value:', session.userId);
+```
+**Rule**: Never assume data types - always verify with logs
+
+#### **4. File Modification Validation (REQUIRED)**
+```bash
+# After making changes, verify the file is actually being used
+grep -r "modifiedFunctionName" .next/
+# OR check browser network tab for the actual API call
+```
+**Rule**: Confirm your changes are in the execution path
+
+### **WHEN TO APPLY THIS RULE**
+- ✅ Data not appearing in frontend
+- ✅ API returning different data than expected
+- ✅ Transformation functions not working
+- ✅ Session/user data issues
+- ✅ Any "data flow" debugging
+
+### **WHEN NOT TO APPLY THIS RULE**
+- ❌ UI styling issues
+- ❌ Simple syntax errors
+- ❌ Configuration changes
+- ❌ New feature development (not debugging)
+
+### **FAILURE MODES TO AVOID**
+1. **"I'll just try this file first"** → Always trace imports
+2. **"This looks like the right place"** → Verify with grep/search
+3. **"I'll add the fix and see if it works"** → Add logs first
+4. **"The data type looks wrong"** → Check actual types with logs
+
+### **SUCCESS INDICATORS**
+- ✅ You know exactly which file is being executed
+- ✅ You have logs showing data at each step
+- ✅ You've verified data types match expectations
+- ✅ Your changes are in the actual execution path
+
+**This rule would have saved 50 minutes of debugging time in this case.**
