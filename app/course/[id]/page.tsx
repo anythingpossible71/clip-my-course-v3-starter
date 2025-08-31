@@ -112,8 +112,11 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
         if (!courseResponse.ok) {
           if (courseResponse.status === 404) {
             throw new Error('Course not found')
+          } else if (courseResponse.status === 401) {
+            throw new Error('You are not authorized to access this course. This course may be shared by another user.')
           } else {
-            throw new Error(`Failed to fetch course: ${courseResponse.status}`)
+            const errorData = await courseResponse.json().catch(() => ({}))
+            throw new Error(errorData.error || `Failed to fetch course: ${courseResponse.status}`)
           }
         }
         
@@ -509,9 +512,15 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
   }
 
   const confirmDeleteCourse = async () => {
-    if (!course) return
+    if (!course) {
+      console.error('❌ Cannot delete course: course object is null')
+      alert('Cannot delete course: course not found or access denied')
+      return
+    }
 
     try {
+      console.log('🗑️ Attempting to delete course with ID:', course.id)
+      
       const response = await fetch(`/api/courses/${course.id}`, {
         method: 'DELETE',
         headers: {
@@ -520,13 +529,18 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
       })
 
       if (response.ok) {
+        console.log('✅ Course deleted successfully')
         // Redirect to courses page after successful deletion
         window.location.href = '/courses'
       } else {
-        console.error('Failed to delete course')
+        const errorData = await response.json().catch(() => ({}))
+        console.error('❌ Failed to delete course:', response.status, errorData)
+        throw new Error(`Failed to delete course: ${errorData.error || response.statusText}`)
       }
     } catch (error) {
-      console.error('Error deleting course:', error)
+      console.error('❌ Error deleting course:', error)
+      // Show user-friendly error message
+      alert(`Failed to delete course: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
 

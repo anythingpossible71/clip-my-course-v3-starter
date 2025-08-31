@@ -445,14 +445,20 @@ export async function DELETE(
     // Get current user session
     const session = await getSession()
     if (!session) {
+      console.log('❌ No session found - user not authenticated')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
+    
+    console.log(`👤 Current user ID: ${session.userId}`)
     
     // Decode the ID from the URL parameter
     const courseId = decodeId(id)
     if (!courseId) {
+      console.log('❌ Failed to decode course ID:', id)
       return NextResponse.json({ error: 'Invalid course ID' }, { status: 400 })
     }
+
+    console.log(`🔍 Decoded course ID: ${courseId}`)
 
     // Verify the course belongs to the current user
     const existingCourse = await prisma.course.findUnique({
@@ -463,8 +469,11 @@ export async function DELETE(
     })
 
     if (!existingCourse) {
+      console.log(`❌ Course not found or access denied - Course ID: ${courseId}, User ID: ${session.userId}`)
       return NextResponse.json({ error: 'Course not found or access denied' }, { status: 404 })
     }
+
+    console.log(`✅ Found course: "${existingCourse.title}" - proceeding with deletion`)
 
     // Permanently delete the course and all related data
     await prisma.$transaction(async (tx) => {
