@@ -36,11 +36,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
-          <CookieConsent 
-            variant="default"
-            onAcceptCallback={() => console.log('Cookies accepted')}
-            onDeclineCallback={() => console.log('Cookies declined')}
-          />
+          <CookieConsent variant="default" />
         </ThemeProvider>
       </body>
     </html>

@@ -15,7 +15,7 @@ export default async function HomePage() {
     redirect('/courses')
   }
 
-  return (
+    return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="relative z-10 border-b border-gray-200 bg-white">
@@ -87,9 +87,9 @@ export default async function HomePage() {
               <CardHeader>
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Copy className="h-6 w-6 text-red-600" />
-                </div>
+              </div>
                 <CardTitle className="text-xl text-gray-900">1. Paste YouTube links and playlists</CardTitle>
-              </CardHeader>
+            </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
                   Simply copy and paste any YouTube video or playlist URL
@@ -101,7 +101,7 @@ export default async function HomePage() {
               <CardHeader>
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Edit className="h-6 w-6 text-red-600" />
-                </div>
+              </div>
                 <CardTitle className="text-xl text-gray-900">2. Edit & publish your course</CardTitle>
               </CardHeader>
               <CardContent>
@@ -122,10 +122,10 @@ export default async function HomePage() {
                 <p className="text-gray-600">
                   Monitor your learning journey with built-in progress tracking
                 </p>
-              </CardContent>
-            </Card>
-          </div>
+            </CardContent>
+          </Card>
         </div>
+      </div>
       </section>
 
       {/* Features Section */}
@@ -136,9 +136,9 @@ export default async function HomePage() {
               <CardHeader>
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
                   <BarChart3 className="h-6 w-6 text-red-600" />
-                </div>
+        </div>
                 <CardTitle className="text-xl text-gray-900">Progress Tracking</CardTitle>
-              </CardHeader>
+            </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
                   Keep track of your learning progress with visual indicators and completion tracking for each lesson.
@@ -150,17 +150,17 @@ export default async function HomePage() {
               <CardHeader>
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
                   <Share2 className="h-6 w-6 text-red-600" />
-                </div>
+              </div>
                 <CardTitle className="text-xl text-gray-900">Easy Sharing</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
                   Share your courses with friends, students, or the world. Generate shareable links instantly.
                 </p>
-              </CardContent>
-            </Card>
-          </div>
+            </CardContent>
+          </Card>
         </div>
+      </div>
       </section>
 
       {/* CTA Section */}
