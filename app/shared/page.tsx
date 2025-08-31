@@ -552,7 +552,7 @@ export default function SharedCoursePage() {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Navbar */}
               <Navbar 
-          showSaveButton={!!currentUser && !!course && !isCourseSaved}
+          showSaveButton={!!currentUser && !!course}
           onSaveCourse={handleSaveCourse}
           isCourseSaved={isCourseSaved}
         />

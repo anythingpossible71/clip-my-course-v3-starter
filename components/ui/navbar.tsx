@@ -108,7 +108,7 @@ export function Navbar({
                   ) : (
                     <Bookmark className="h-4 w-4" />
                   )}
-                  {isCourseSaved ? "Saved" : "Save Course"}
+                  {isCourseSaved ? "In My Courses" : "Save Course"}
                 </Button>
               )}
               
