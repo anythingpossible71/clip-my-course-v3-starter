@@ -69,10 +69,13 @@ export async function POST(request: NextRequest) {
 
       console.log("✅ Password verified for user:", user.email);
 
-      // Update last signed in
+      // Update last signed in and mark as consented to cookies
       await prisma.user.update({
         where: { id: user.id },
-        data: { last_signed_in: new Date() },
+        data: { 
+          last_signed_in: new Date(),
+          cookie_consent: true // Mark as consented when they sign in
+        },
       });
 
       // Create session

@@ -15,6 +15,7 @@ model User {
   email          String           @unique
   password       String?
   last_signed_in DateTime?
+  cookie_consent Boolean          @default(false)
   courses        Course[]
   enrollments    Enrollment[]
   lessonProgress LessonProgress[]

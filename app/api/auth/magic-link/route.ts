@@ -35,10 +35,13 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(new URL("/auth/signin?error=user_not_found", request.url));
     }
 
-    // Update last signed in
+    // Update last signed in and mark as consented to cookies
     await prisma.user.update({
       where: { id: user.id },
-      data: { last_signed_in: new Date() },
+      data: { 
+        last_signed_in: new Date(),
+        cookie_consent: true // Mark as consented when they sign in
+      },
     });
 
     // Create session

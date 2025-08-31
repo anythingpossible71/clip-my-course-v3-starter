@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { CookieConsent } from "@/components/cookie-consent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,6 +36,11 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
+          <CookieConsent 
+            variant="default"
+            onAcceptCallback={() => console.log('Cookies accepted')}
+            onDeclineCallback={() => console.log('Cookies declined')}
+          />
         </ThemeProvider>
       </body>
     </html>

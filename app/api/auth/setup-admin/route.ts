@@ -59,6 +59,7 @@ export async function POST(request: NextRequest) {
           email,
           password: hashedPassword,
           last_signed_in: new Date(),
+          cookie_consent: true, // Mark as consented when admin is created
         },
       });
 
