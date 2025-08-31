@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { cn } from "@/lib/utils"
 import { formatDuration } from "@/lib/utils/course-helpers"
 import { Navbar } from "@/components/ui/navbar"
+import { useToast } from "@/hooks/use-toast"
 
 interface Lesson {
   id: string
@@ -65,6 +66,7 @@ interface Course {
 }
 
 export default function SharedCoursePage() {
+  const { toast } = useToast()
   const [course, setCourse] = useState<Course | null>(null)
   const [currentLesson, setCurrentLesson] = useState<Lesson | null>(null)
   const [openSections, setOpenSections] = useState<string[]>([])
@@ -172,8 +174,12 @@ export default function SharedCoursePage() {
         // Check if course is already saved by current user
         if (courseData.savedCourses && courseData.savedCourses.length > 0) {
           setIsCourseSaved(true)
-          // Show alert for saved course
-          alert('✅ This course is already in your saved courses!')
+          // Show toast notification for saved course
+          toast({
+            title: "Course Already Saved",
+            description: "This course is already in your saved courses!",
+            variant: "default"
+          })
         }
 
         // Set the first lesson as current lesson from the unified structure
