@@ -1,10 +1,20 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowRight, Video, Share2, BarChart3, Play, Focus, Copy, Edit, CheckCircle } from 'lucide-react'
+import { getSession } from '@/lib/auth/auth'
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Check if user is authenticated
+  const session = await getSession()
+  
+  // If user is signed in, redirect to courses page
+  if (session) {
+    redirect('/courses')
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
