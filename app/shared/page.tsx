@@ -86,7 +86,7 @@ export default function SharedCoursePage() {
     setCourseId(cid)
   }, [])
 
-  // Fetch current user
+  // Fetch current user and check for redirect
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
@@ -94,6 +94,17 @@ export default function SharedCoursePage() {
         if (response.ok) {
           const user = await response.json()
           setCurrentUser(user)
+          
+          // Check if this is the user's own course and redirect
+          if (course && user && course.creator.id === user.id) {
+            console.log('🔄 Redirecting to own course view:', {
+              courseId: course.id,
+              userId: user.id,
+              courseCreatorId: course.creator.id
+            })
+            window.location.href = `/course/${course.id}`
+            return
+          }
         }
       } catch (error) {
         console.error('Error fetching user:', error)
@@ -101,7 +112,7 @@ export default function SharedCoursePage() {
     }
 
     fetchCurrentUser()
-  }, [])
+  }, [course]) // Add course as dependency to check after course loads
 
   // Fetch course data
   useEffect(() => {
@@ -131,11 +142,13 @@ export default function SharedCoursePage() {
         
         // Add sections with their minimum globalOrderIndex (same as main course page)
         courseData.sections.forEach((section: any) => {
-          const sectionMinOrder = Math.min(...section.lessons.map((l: any) => l.globalOrderIndex || 0))
-          unifiedItems.push({
-            item: section,
-            globalOrderIndex: sectionMinOrder
-          })
+          if (section.lessons && section.lessons.length > 0) {
+            const sectionMinOrder = Math.min(...section.lessons.map((l: any) => l.globalOrderIndex || 0))
+            unifiedItems.push({
+              item: section,
+              globalOrderIndex: sectionMinOrder
+            })
+          }
         })
         
         // Add level 0 videos (same as main course page)
@@ -916,7 +929,9 @@ export default function SharedCoursePage() {
               onClick={() => {
                 setShowSignInDialog(false)
                 const currentUrl = window.location.href
-                window.location.href = `/auth/signin?redirect=${encodeURIComponent(currentUrl)}`
+                // Add a special parameter to indicate this is a shared course redirect
+                const redirectUrl = `${currentUrl}${currentUrl.includes('?') ? '&' : '?'}check_owner=true`
+                window.location.href = `/auth/signin?redirect=${encodeURIComponent(redirectUrl)}`
               }}
               className="w-full sm:w-auto"
             >

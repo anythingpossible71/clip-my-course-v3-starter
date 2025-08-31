@@ -18,8 +18,16 @@ export async function GET(
 
     // Get current user session (optional - for progress tracking)
     let session = null
+    let includeProgress = false
     try {
       session = await getSession()
+      // Only include progress if we have a valid numeric user ID
+      // ULID user IDs are not compatible with the current progress table schema
+      if (session && session.userId && !isNaN(Number(session.userId))) {
+        includeProgress = true
+      } else if (session && session.userId) {
+        console.log('⚠️ Session contains non-numeric userId, skipping progress:', session.userId)
+      }
     } catch (error) {
       console.log('No authenticated user - showing course without progress')
     }
@@ -42,10 +50,10 @@ export async function GET(
               orderBy: {
                 global_order_index: 'asc'
               },
-              include: session ? {
+              include: includeProgress ? {
                 progress: {
                   where: {
-                    user_id: session.userId
+                    user_id: Number(session.userId)
                   }
                 }
               } : undefined
@@ -62,10 +70,10 @@ export async function GET(
           orderBy: {
             global_order_index: 'asc'
           },
-          include: session ? {
+          include: includeProgress ? {
             progress: {
               where: {
-                user_id: session.userId
+                user_id: Number(session.userId)
               }
             }
           } : undefined
