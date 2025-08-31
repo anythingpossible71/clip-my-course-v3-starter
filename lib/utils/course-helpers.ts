@@ -63,7 +63,9 @@ export const transformCourseForResponse = (course: any) => {
       email: course.creator.email,
       profile: course.creator.profile
     } : null,
-    sections: course.sections?.map(transformSectionForResponse) || []
+    sections: course.sections?.map(transformSectionForResponse) || [],
+    lessons: course.lessons?.map(transformLessonForResponse) || [],
+    savedCourses: course.savedCourses || []
   }
 }
 
