@@ -172,6 +172,8 @@ export default function SharedCoursePage() {
         // Check if course is already saved by current user
         if (courseData.savedCourses && courseData.savedCourses.length > 0) {
           setIsCourseSaved(true)
+          // Show alert for saved course
+          alert('✅ This course is already in your saved courses!')
         }
 
         // Set the first lesson as current lesson from the unified structure

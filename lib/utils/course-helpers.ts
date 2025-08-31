@@ -41,7 +41,9 @@ export const parseDuration = (duration: string): number => {
 
 // Course data transformation utilities
 export const transformCourseForResponse = (course: any) => {
-  return {
+  console.log('🔍 Transform debug - input savedCourses:', course.savedCourses)
+  
+  const result = {
     id: encodeId(course.id),
     title: course.title,
     description: course.description,
@@ -67,6 +69,9 @@ export const transformCourseForResponse = (course: any) => {
     lessons: course.lessons?.map(transformLessonForResponse) || [],
     savedCourses: course.savedCourses || []
   }
+  
+  console.log('🔍 Transform debug - output savedCourses:', result.savedCourses)
+  return result
 }
 
 export const transformSectionForResponse = (section: any) => {
