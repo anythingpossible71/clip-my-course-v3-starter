@@ -118,6 +118,7 @@ export default function CreateCoursePage() {
   const [addVideoSectionId, setAddVideoSectionId] = useState<string | undefined>(undefined)
   const [editingVideo, setEditingVideo] = useState<{ id: string; title: string; description: string; duration: string; videoUrl: string } | null>(null)
 
+  // ALL useEffect hooks must also be at the top - no conditional returns before these
   // Check authentication on component mount
   useEffect(() => {
     const checkAuth = async () => {
@@ -146,6 +147,28 @@ export default function CreateCoursePage() {
 
     checkAuth()
   }, [router])
+
+  // Navigation guard for unsaved changes
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (hasUnsavedChanges) {
+        e.preventDefault()
+        e.returnValue = 'You have unsaved changes. Are you sure you want to leave?'
+        return 'You have unsaved changes. Are you sure you want to leave?'
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [hasUnsavedChanges])
+
+  // Fetch course data if in edit mode
+  useEffect(() => {
+    if (isEditMode && editCourseId) {
+      console.log('🎯 Edit mode detected with course ID:', editCourseId)
+      fetchCourseData(editCourseId)
+    }
+  }, [isEditMode, editCourseId])
 
   // Show loading state while checking authentication
   if (isLoading) {
@@ -208,28 +231,7 @@ export default function CreateCoursePage() {
     }
   }
 
-  // Navigation guard for unsaved changes
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (hasUnsavedChanges) {
-        e.preventDefault()
-        e.returnValue = 'You have unsaved changes. Are you sure you want to leave?'
-        return 'You have unsaved changes. Are you sure you want to leave?'
-      }
-    }
-
-    window.addEventListener('beforeunload', handleBeforeUnload)
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
-  }, [hasUnsavedChanges])
-
   // Fetch course data if in edit mode
-  useEffect(() => {
-    if (isEditMode && editCourseId) {
-      console.log('🎯 Edit mode detected with course ID:', editCourseId)
-      fetchCourseData(editCourseId)
-    }
-  }, [isEditMode, editCourseId])
-
   const fetchCourseData = async (courseId: string) => {
     try {
       console.log('🔍 Fetching course data for ID:', courseId)
