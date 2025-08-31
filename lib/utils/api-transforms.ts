@@ -219,6 +219,15 @@ export function transformCourseForResponse(course: {
       completed_at: Date | null;
       }>;
   }>;
+  savedCourses?: Array<{
+    id: number;
+    created_at: Date;
+    updated_at: Date;
+    deleted_at: Date | null;
+    user_id: number;
+    course_id: number;
+    saved_at: Date;
+  }>;
 }): {
   id: string;
   title: string;
@@ -282,6 +291,15 @@ export function transformCourseForResponse(course: {
     level: number;
     globalOrderIndex: number;
     completed: boolean;
+  }>;
+  savedCourses?: Array<{
+    id: number;
+    created_at: Date;
+    updated_at: Date;
+    deleted_at: Date | null;
+    user_id: number;
+    course_id: number;
+    saved_at: Date;
   }>;
 } {
   // Get the first lesson's thumbnail as the course thumbnail
@@ -360,5 +378,6 @@ export function transformCourseForResponse(course: {
           completed: lesson.progress?.[0]?.is_completed || false,
         }))
       : undefined,
+    savedCourses: course.savedCourses || [],
   };
 }
