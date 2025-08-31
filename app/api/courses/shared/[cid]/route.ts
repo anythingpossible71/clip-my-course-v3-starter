@@ -22,20 +22,22 @@ export async function GET(
     let includeSavedCourses = false
     try {
       session = await getSession()
-      // Only include progress if we have a valid numeric user ID
-      // ULID user IDs are not compatible with the current progress table schema
-      if (session && session.userId && !isNaN(Number(session.userId))) {
-        includeProgress = true
+      // Always include saved courses if we have a session
+      if (session && session.userId) {
         includeSavedCourses = true
-      } else if (session && session.userId) {
-        console.log('⚠️ Session contains non-numeric userId, skipping progress:', session.userId)
-        // Still include saved courses for ULID users
-        includeSavedCourses = true
+        // Only include progress if we have a valid numeric user ID
+        // ULID user IDs are not compatible with the current progress table schema
+        if (!isNaN(Number(session.userId))) {
+          includeProgress = true
+        } else {
+          console.log('⚠️ Session contains non-numeric userId, skipping progress:', session.userId)
+        }
       }
       
       console.log('🔍 Session debug:', {
         hasSession: !!session,
         userId: session?.userId,
+        userIdType: typeof session?.userId,
         includeProgress,
         includeSavedCourses
       })
@@ -105,6 +107,8 @@ export async function GET(
 
     console.log(`✅ Found shared course: ${course.title}`)
     console.log(`📊 Saved courses data:`, course.savedCourses)
+    console.log(`📊 Course ID:`, course.id)
+    console.log(`📊 User ID from session:`, session?.userId)
 
     // Transform course data for response
     const transformedCourse = transformCourseForResponse(course)
