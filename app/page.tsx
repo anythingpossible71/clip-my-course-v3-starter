@@ -40,8 +40,10 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Turn YouTube videos into online courses
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span style={{ color: 'rgb(220, 38, 38)' }}>Turn YouTube videos</span>
+              <br />
+              <span style={{ color: '#ffffff' }}>into online courses</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress takes just a few clicks.
