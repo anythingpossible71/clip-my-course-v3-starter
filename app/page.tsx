@@ -35,7 +35,7 @@ export default async function HomePage() {
                 Sign In
               </Button>
             </Link>
-            <Link href="/create-course">
+            <Link href="/auth/signin?redirect=%2Fcreate-course">
               <Button className="bg-red-600 hover:bg-red-700 text-white">
                 Clip a course
               </Button>
@@ -57,7 +57,7 @@ export default async function HomePage() {
               Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress with just a few clicks.
             </p>
             <div className="flex justify-center">
-              <Link href="/create-course">
+              <Link href="/auth/signin?redirect=%2Fcreate-course">
                 <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg">
                   Clip a course
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -170,7 +170,7 @@ export default async function HomePage() {
           <p className="text-xl text-red-100 mb-8">
             Transform any YouTube content into a structured course in minutes
           </p>
-          <Link href="/create-course">
+          <Link href="/auth/signin?redirect=%2Fcreate-course">
             <Button size="lg" variant="secondary" className="px-8 py-3 text-lg">
               Clip your first course
               <ArrowRight className="ml-2 h-5 w-5" />

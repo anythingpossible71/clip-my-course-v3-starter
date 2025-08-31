@@ -79,7 +79,6 @@ export default function CreateCoursePage() {
   // ALL useState hooks must be at the top - no conditional returns before these
   const [currentUser, setCurrentUser] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
   
   // Course state hooks
   const [course, setCourse] = useState<Course>({
@@ -127,7 +126,6 @@ export default function CreateCoursePage() {
         if (response.ok) {
           const user = await response.json()
           setCurrentUser(user)
-          setIsAuthenticated(true)
         } else {
           // User is not authenticated, redirect to sign in
           const currentUrl = encodeURIComponent(window.location.href)
@@ -183,7 +181,7 @@ export default function CreateCoursePage() {
   }
 
   // Don't render the page if not authenticated (will redirect)
-  if (!isAuthenticated) {
+  if (!currentUser) {
     return null
   }
 
