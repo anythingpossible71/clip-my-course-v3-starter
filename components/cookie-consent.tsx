@@ -5,12 +5,19 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
+interface CookieConsentProps {
+  variant?: "default" | "small" | "minimal";
+  mode?: boolean;
+  onAcceptCallback?: () => void;
+  onDeclineCallback?: () => void;
+}
+
 export function CookieConsent({
   variant = "default",
   mode = false,
-  onAcceptCallback = () => { },
-  onDeclineCallback = () => { },
-}) {
+  onAcceptCallback,
+  onDeclineCallback,
+}: CookieConsentProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hide, setHide] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -79,7 +86,9 @@ export function CookieConsent({
     setTimeout(() => {
       setHide(true);
     }, 700);
-    onAcceptCallback();
+    if (onAcceptCallback) {
+      onAcceptCallback();
+    }
   };
 
   const decline = async () => {
@@ -88,7 +97,9 @@ export function CookieConsent({
     setTimeout(() => {
       setHide(true);
     }, 700);
-    onDeclineCallback();
+    if (onDeclineCallback) {
+      onDeclineCallback();
+    }
   };
 
   useEffect(() => {

@@ -19,29 +19,27 @@ export default async function HomePage() {
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="relative z-10 border-b border-gray-200 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Image 
-                src="/applogo.png" 
-                alt="ClipMyCourse" 
-                width={219} 
-                height={48}
-                className="h-8 w-auto"
-              />
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/auth/signin">
-                <Button variant="ghost" className="text-gray-700 hover:text-red-600">
-                  Sign In
-                </Button>
-              </Link>
-              <Link href="/create-course">
-                <Button className="bg-red-600 hover:bg-red-700 text-white">
-                  Clip a course
-                </Button>
-              </Link>
-            </div>
+        <div className="flex items-center justify-between px-5 py-4 w-full">
+          <div className="flex items-center">
+            <Image 
+              src="/applogo.png" 
+              alt="ClipMyCourse" 
+              width={219} 
+              height={48}
+              className="h-8 w-auto"
+            />
+          </div>
+          <div className="flex items-center space-x-4">
+            <Link href="/auth/signin">
+              <Button variant="ghost" className="text-gray-700 hover:text-red-600">
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/create-course">
+              <Button className="bg-red-600 hover:bg-red-700 text-white">
+                Clip a course
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -56,7 +54,7 @@ export default async function HomePage() {
               <span style={{ color: '#000000' }}>into online courses</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress takes just a few clicks.
+              Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress with just a few clicks.
             </p>
             <div className="flex justify-center">
               <Link href="/create-course">
