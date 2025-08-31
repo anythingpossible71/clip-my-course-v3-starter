@@ -6,23 +6,23 @@ import { ArrowRight, Video, Share2, BarChart3, Play, Focus, Copy, Edit, CheckCir
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-900">
       {/* Navigation */}
-      <nav className="relative z-10 border-b border-gray-200 bg-white">
+      <nav className="relative z-10 border-b border-gray-700 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Image 
                 src="/applogo.png" 
                 alt="ClipMyCourse" 
-                width={32} 
-                height={32}
-                className="w-8 h-8"
+                width={40} 
+                height={40}
+                className="w-10 h-10"
               />
             </div>
             <div className="flex items-center space-x-4">
               <Link href="/auth/signin">
-                <Button variant="ghost" className="text-gray-700 hover:text-red-600">
+                <Button variant="ghost" className="text-gray-300 hover:text-red-400">
                   Sign In
                 </Button>
               </Link>
@@ -40,10 +40,12 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Turn YouTube videos into online courses
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Turn <span className="text-red-400">YouTube videos</span>
+              <br />
+              into <span className="text-red-400">online courses</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress takes just a few clicks.
             </p>
             <div className="flex justify-center">
@@ -59,55 +61,55 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Create your course in seconds
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               Simple steps to transform any YouTube content into a structured learning experience
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-lg bg-gray-700">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Copy className="h-6 w-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Copy className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">1. Paste a YouTube link</CardTitle>
+                <CardTitle className="text-xl text-white">1. Paste YouTube links and playlists</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Simply copy and paste any YouTube video or playlist URL
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-lg bg-gray-700">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Edit className="h-6 w-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Edit className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">2. Edit and create your course</CardTitle>
+                <CardTitle className="text-xl text-white">2. Edit & publish your course</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Organize videos into sections and customize your course structure
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-lg bg-gray-700">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-6 w-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">3. Track your progress</CardTitle>
+                <CardTitle className="text-xl text-white">3. Track your progress</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Monitor your learning journey with built-in progress tracking
                 </p>
               </CardContent>
@@ -117,32 +119,32 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg">
+            <Card className="border-0 shadow-lg bg-gray-800">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <BarChart3 className="h-6 w-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">Progress Tracking</CardTitle>
+                <CardTitle className="text-xl text-white">Progress Tracking</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Keep track of your learning progress with visual indicators and completion tracking for each lesson.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg">
+            <Card className="border-0 shadow-lg bg-gray-800">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <Share2 className="h-6 w-6 text-red-600" />
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                  <Share2 className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">Easy Sharing</CardTitle>
+                <CardTitle className="text-xl text-white">Easy Sharing</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Share your courses with friends, students, or the world. Generate shareable links instantly.
                 </p>
               </CardContent>
@@ -170,20 +172,20 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-gray-200">
+      <footer className="py-8 border-t border-gray-700 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Image 
                 src="/applogo.png" 
                 alt="ClipMyCourse" 
-                width={24} 
-                height={24}
-                className="w-6 h-6"
+                width={32} 
+                height={32}
+                className="w-8 h-8"
               />
-              <span className="ml-2 text-gray-600">ClipMyCourse</span>
+              <span className="ml-2 text-gray-300">ClipMyCourse</span>
             </div>
-            <div className="text-gray-500 text-sm">
+            <div className="text-gray-400 text-sm">
               © 2024 ClipMyCourse. All rights reserved.
             </div>
           </div>
