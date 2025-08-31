@@ -1,0 +1,209 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../db/prod.db"
+}
+
+model User {
+  id             Int              @id @default(autoincrement())
+  created_at     DateTime         @default(now())
+  updated_at     DateTime         @updatedAt
+  deleted_at     DateTime?
+  email          String           @unique
+  password       String?
+  last_signed_in DateTime?
+  courses        Course[]
+  enrollments    Enrollment[]
+  lessonProgress LessonProgress[]
+  savedCourses   SavedCourse[]
+  profile        UserProfile?
+  roles          UserRole[]
+
+  @@index([email])
+  @@index([deleted_at])
+}
+
+model UserProfile {
+  id         Int       @id @default(autoincrement())
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  user_id    Int       @unique
+  first_name String?
+  last_name  String?
+  user       User      @relation(fields: [user_id], references: [id])
+
+  @@index([user_id])
+  @@index([deleted_at])
+}
+
+model Role {
+  id         Int        @id @default(autoincrement())
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+  deleted_at DateTime?
+  name       String     @unique
+  users      UserRole[]
+
+  @@index([name])
+  @@index([deleted_at])
+}
+
+model UserRole {
+  id         Int       @id @default(autoincrement())
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  user_id    Int
+  role_id    Int
+  role       Role      @relation(fields: [role_id], references: [id])
+  user       User      @relation(fields: [user_id], references: [id])
+
+  @@unique([user_id, role_id])
+  @@index([user_id])
+  @@index([role_id])
+  @@index([deleted_at])
+}
+
+model Course {
+  id             Int          @id @default(autoincrement())
+  created_at     DateTime     @default(now())
+  updated_at     DateTime     @updatedAt
+  deleted_at     DateTime?
+  title          String
+  description    String?
+  thumbnail      String?
+  is_published   Boolean      @default(false)
+  is_featured    Boolean      @default(false)
+  is_free        Boolean      @default(false)
+  price          Float?
+  total_duration Int          @default(0)
+  total_lessons  Int          @default(0)
+  total_sections Int          @default(0)
+  slug           String?      @unique
+  tags           String?
+  category       String?
+  creator_id     Int
+  creator        User         @relation(fields: [creator_id], references: [id])
+  sharedCourseId String?      @unique
+  isShared       Boolean      @default(false)
+  enrollments    Enrollment[]
+  lessons        Lesson[]
+  sections       Section[]
+  savedCourses   SavedCourse[]
+
+  @@index([creator_id])
+  @@index([is_published])
+  @@index([is_featured])
+  @@index([slug])
+  @@index([deleted_at])
+}
+
+model Section {
+  id             Int       @id @default(autoincrement())
+  created_at     DateTime  @default(now())
+  updated_at     DateTime  @updatedAt
+  deleted_at     DateTime?
+  title          String
+  description    String?
+  order_index    Int
+  total_duration Int       @default(0)
+  total_lessons  Int       @default(0)
+  course_id      Int
+  lessons        Lesson[]
+  course         Course    @relation(fields: [course_id], references: [id])
+
+  @@index([course_id])
+  @@index([order_index])
+  @@index([deleted_at])
+}
+
+model Lesson {
+  id                 Int              @id @default(autoincrement())
+  created_at         DateTime         @default(now())
+  updated_at         DateTime         @updatedAt
+  deleted_at         DateTime?
+  title              String
+  description        String?
+  order_index        Int
+  video_url          String?
+  video_id           String?
+  duration           Int              @default(0)
+  thumbnail          String?
+  is_free            Boolean          @default(false)
+  level              Int              @default(0)
+  course_id          Int
+  section_id         Int?
+  global_order_index Int?
+  section            Section?         @relation(fields: [section_id], references: [id])
+  course             Course           @relation(fields: [course_id], references: [id])
+  progress           LessonProgress[]
+
+  @@index([section_id])
+  @@index([order_index])
+  @@index([video_id])
+  @@index([deleted_at])
+}
+
+model Enrollment {
+  id                  Int       @id @default(autoincrement())
+  created_at          DateTime  @default(now())
+  updated_at          DateTime  @updatedAt
+  deleted_at          DateTime?
+  status              String    @default("ACTIVE")
+  completed_at        DateTime?
+  progress_percentage Float     @default(0)
+  last_accessed_at    DateTime?
+  user_id             Int
+  course_id           Int
+  course              Course    @relation(fields: [course_id], references: [id])
+  user                User      @relation(fields: [user_id], references: [id])
+
+  @@unique([user_id, course_id])
+  @@index([user_id])
+  @@index([course_id])
+  @@index([status])
+  @@index([deleted_at])
+}
+
+model LessonProgress {
+  id            Int       @id @default(autoincrement())
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  deleted_at    DateTime?
+  is_completed  Boolean   @default(false)
+  completed_at  DateTime?
+  watch_time    Int       @default(0)
+  last_position Float     @default(0)
+  user_id       Int
+  lesson_id     Int
+  lesson        Lesson    @relation(fields: [lesson_id], references: [id])
+  user          User      @relation(fields: [user_id], references: [id])
+
+  @@unique([user_id, lesson_id])
+  @@index([user_id])
+  @@index([lesson_id])
+  @@index([is_completed])
+  @@index([deleted_at])
+}
+
+model SavedCourse {
+  id         Int       @id @default(autoincrement())
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  user_id    Int
+  course_id  Int
+  saved_at   DateTime  @default(now())
+  user       User      @relation(fields: [user_id], references: [id])
+  course     Course    @relation(fields: [course_id], references: [id])
+
+  @@unique([user_id, course_id])
+  @@index([user_id])
+  @@index([course_id])
+  @@index([saved_at])
+  @@index([deleted_at])
+}

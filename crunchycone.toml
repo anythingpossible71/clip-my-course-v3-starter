@@ -1,0 +1,6 @@
+[project]
+id = "0198ef82-fa6b-74f3-8d67-d6f43b2cb34d"
+name = "clip my course v3"
+slug = "clip-my-course-v3"
+
+environment = "dev"
