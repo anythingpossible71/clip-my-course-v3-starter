@@ -76,6 +76,57 @@ export default function CreateCoursePage() {
   const editCourseId = searchParams.get('edit')
   const isEditMode = !!editCourseId
 
+  // Authentication state
+  const [currentUser, setCurrentUser] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  // Check authentication on component mount
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('/api/auth/me')
+        if (response.ok) {
+          const user = await response.json()
+          setCurrentUser(user)
+          setIsAuthenticated(true)
+        } else {
+          // User is not authenticated, redirect to sign in
+          const currentUrl = encodeURIComponent(window.location.href)
+          router.push(`/auth/signin?redirect=${currentUrl}`)
+          return
+        }
+      } catch (error) {
+        console.error('Error checking authentication:', error)
+        // On error, redirect to sign in
+        const currentUrl = encodeURIComponent(window.location.href)
+        router.push(`/auth/signin?redirect=${currentUrl}`)
+        return
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    checkAuth()
+  }, [router])
+
+  // Show loading state while checking authentication
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Don't render the page if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null
+  }
+
   // Initialize with empty course for create mode, or fetch course data for edit mode
   const [course, setCourse] = useState<Course>({
     title: "",
@@ -1990,8 +2041,8 @@ export default function CreateCoursePage() {
       <Navbar 
         actionButton={
           <Button onClick={handleSaveChanges}>
-            {isEditMode ? "Update Course" : "Add to my courses"}
-                </Button>
+            {isEditMode ? "Update Course" : "Create Course"}
+          </Button>
         }
       />
 
