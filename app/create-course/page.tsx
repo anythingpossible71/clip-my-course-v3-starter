@@ -76,10 +76,47 @@ export default function CreateCoursePage() {
   const editCourseId = searchParams.get('edit')
   const isEditMode = !!editCourseId
 
-  // Authentication state
+  // ALL useState hooks must be at the top - no conditional returns before these
   const [currentUser, setCurrentUser] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  
+  // Course state hooks
+  const [course, setCourse] = useState<Course>({
+    title: "",
+    description: "",
+    sections: [],
+    videos: [], // Will be removed
+    items: []  // New unified structure
+  })
+  const [originalCourse, setOriginalCourse] = useState<Course | null>(null)
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [showUnsavedDialog, setShowUnsavedDialog] = useState(false)
+  const [pendingNavigation, setPendingNavigation] = useState<string | null>(null)
+
+  // Video drag and drop state
+  const [draggedSectionId, setDraggedSectionId] = useState<string | null>(null)
+  const [draggedVideoId, setDraggedVideoId] = useState<string | null>(null)
+  const [videoDropIndicator, setVideoDropIndicator] = useState<VideoDropIndicator | null>(null)
+
+  // Section drag and drop state
+  const [draggedSection, setDraggedSection] = useState<string | null>(null)
+  const [sectionDropIndicator, setSectionDropIndicator] = useState<SectionDropIndicator | null>(null)
+
+  // Track collapsed sections
+  const [collapsedSections, setCollapsedSections] = useState<string[]>([])
+
+  // Delete confirmation dialog state
+  const [deleteConfirmation, setDeleteConfirmation] = useState<DeleteConfirmation | null>(null)
+  
+  // Prevent double drop processing
+  const [isProcessingDrop, setIsProcessingDrop] = useState(false)
+
+  // Add Video Modal state
+  const [isAddVideoModalOpen, setIsAddVideoModalOpen] = useState(false)
+  const [addVideoLevel, setAddVideoLevel] = useState<0 | 1>(0)
+  const [addVideoSectionId, setAddVideoSectionId] = useState<string | undefined>(undefined)
+  const [editingVideo, setEditingVideo] = useState<{ id: string; title: string; description: string; duration: string; videoUrl: string } | null>(null)
 
   // Check authentication on component mount
   useEffect(() => {
@@ -126,19 +163,6 @@ export default function CreateCoursePage() {
   if (!isAuthenticated) {
     return null
   }
-
-  // Initialize with empty course for create mode, or fetch course data for edit mode
-  const [course, setCourse] = useState<Course>({
-    title: "",
-    description: "",
-    sections: [],
-    videos: [], // Will be removed
-    items: []  // New unified structure
-  })
-  const [originalCourse, setOriginalCourse] = useState<Course | null>(null)
-  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
-  const [showUnsavedDialog, setShowUnsavedDialog] = useState(false)
-  const [pendingNavigation, setPendingNavigation] = useState<string | null>(null)
 
   // Function to check if there are unsaved changes
   const checkForUnsavedChanges = (currentCourse: Course) => {
@@ -309,30 +333,6 @@ export default function CreateCoursePage() {
       console.error('Error fetching course data:', error)
     }
   }
-
-  // Video drag and drop state
-  const [draggedSectionId, setDraggedSectionId] = useState<string | null>(null)
-  const [draggedVideoId, setDraggedVideoId] = useState<string | null>(null)
-  const [videoDropIndicator, setVideoDropIndicator] = useState<VideoDropIndicator | null>(null)
-
-  // Section drag and drop state
-  const [draggedSection, setDraggedSection] = useState<string | null>(null)
-  const [sectionDropIndicator, setSectionDropIndicator] = useState<SectionDropIndicator | null>(null)
-
-  // Track collapsed sections
-  const [collapsedSections, setCollapsedSections] = useState<string[]>([])
-
-  // Delete confirmation dialog state
-  const [deleteConfirmation, setDeleteConfirmation] = useState<DeleteConfirmation | null>(null)
-  
-  // Prevent double drop processing
-  const [isProcessingDrop, setIsProcessingDrop] = useState(false)
-
-  // Add Video Modal state
-  const [isAddVideoModalOpen, setIsAddVideoModalOpen] = useState(false)
-  const [addVideoLevel, setAddVideoLevel] = useState<0 | 1>(0)
-  const [addVideoSectionId, setAddVideoSectionId] = useState<string | undefined>(undefined)
-  const [editingVideo, setEditingVideo] = useState<{ id: string; title: string; description: string; duration: string; videoUrl: string } | null>(null)
 
   const toggleSectionCollapse = (sectionId: string) => {
     setCollapsedSections((prev) =>
