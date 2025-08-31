@@ -100,7 +100,8 @@ export async function GET(
         // Include saved course information if user is authenticated
         savedCourses: session && session.userId ? {
           where: {
-            user_id: Number(session.userId)
+            user_id: session.userId,
+            deleted_at: null
           }
         } : undefined
       }
@@ -112,9 +113,8 @@ export async function GET(
     }
 
     console.log(`✅ Found shared course: ${course.title}`)
-    console.log(`📊 Saved courses data:`, course.savedCourses)
-    console.log(`📊 Course ID:`, course.id)
-    console.log(`📊 User ID from session:`, session?.userId)
+    console.log(`📊 Session user ID: ${session?.userId} (type: ${typeof session?.userId})`)
+    console.log(`📊 Course savedCourses:`, JSON.stringify(course.savedCourses, null, 2))
 
     // Transform course data for response
     const transformedCourse = transformCourseForResponse(course)
