@@ -1,12 +1,39 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowRight, Play, BookOpen, Users, Star, Zap, Shield, Globe } from 'lucide-react'
+import { ArrowRight, Play, BookOpen, Users, Star, Zap, Shield, Globe, Video, Share2, BarChart3, MessageCircle } from 'lucide-react'
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* Navigation */}
+      <nav className="relative z-10 border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <div className="flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                    <Video className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-xl font-bold text-gray-900">ClipMyCourse</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Button asChild variant="ghost">
+                <Link href="/auth/signin">Sign In</Link>
+              </Button>
+              <Button asChild>
+                <Link href="/auth/signup">Get Started</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
@@ -26,13 +53,13 @@ export default function HomePage() {
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Build interactive courses with video lessons, track progress, and share knowledge with the world. 
-              Join thousands of educators and learners creating amazing content.
+              Join thousands of educators and learners creating amazing content with ClipMyCourse.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
                 <Link href="/auth/signup">
-                  Get Started Free
+                  Start Creating Free
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -77,7 +104,7 @@ export default function HomePage() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Play className="w-6 h-6 text-blue-600" />
+                  <Video className="w-6 h-6 text-blue-600" />
                 </div>
                 <CardTitle>Video Lessons</CardTitle>
                 <CardDescription>
@@ -89,7 +116,7 @@ export default function HomePage() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-purple-600" />
+                  <Share2 className="w-6 h-6 text-purple-600" />
                 </div>
                 <CardTitle>Share & Collaborate</CardTitle>
                 <CardDescription>
@@ -101,7 +128,7 @@ export default function HomePage() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <BookOpen className="w-6 h-6 text-green-600" />
+                  <BarChart3 className="w-6 h-6 text-green-600" />
                 </div>
                 <CardTitle>Progress Tracking</CardTitle>
                 <CardDescription>
@@ -113,7 +140,7 @@ export default function HomePage() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-orange-600" />
+                  <MessageCircle className="w-6 h-6 text-orange-600" />
                 </div>
                 <CardTitle>Community Features</CardTitle>
                 <CardDescription>
@@ -157,7 +184,7 @@ export default function HomePage() {
               Trusted by Educators Worldwide
             </h2>
             <p className="text-xl text-gray-600">
-              Join thousands of creators who have transformed their teaching with Clip My Course.
+              Join thousands of creators who have transformed their teaching with ClipMyCourse.
             </p>
           </div>
           
@@ -170,7 +197,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "Clip My Course revolutionized how I teach. The video organization and progress tracking features are incredible. My students love the interactive experience!"
+                  "ClipMyCourse revolutionized how I teach. The video organization and progress tracking features are incredible. My students love the interactive experience!"
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
@@ -214,7 +241,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4">
-                  "As a corporate trainer, I needed a platform that could handle our scale. Clip My Course delivers with enterprise features and excellent support."
+                  "As a corporate trainer, I needed a platform that could handle our scale. ClipMyCourse delivers with enterprise features and excellent support."
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
@@ -262,7 +289,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Clip My Course</h3>
+              <div className="flex items-center mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                  <Video className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-lg font-semibold">ClipMyCourse</span>
+              </div>
               <p className="text-gray-400">
                 Empowering educators and creators to share knowledge through interactive video courses.
               </p>
@@ -296,7 +328,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Clip My Course. All rights reserved.</p>
+            <p>&copy; 2024 ClipMyCourse. All rights reserved.</p>
           </div>
         </div>
       </footer>
