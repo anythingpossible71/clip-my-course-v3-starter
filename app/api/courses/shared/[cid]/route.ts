@@ -46,6 +46,12 @@ export async function GET(
     }
 
     // Find course by sharedCourseId
+    console.log('🔍 Prisma query debug:', {
+      includeSavedCourses,
+      sessionUserId: session?.userId,
+      numericUserId: session?.userId ? Number(session.userId) : null
+    })
+    
     const course = await prisma.course.findFirst({
       where: {
         sharedCourseId: cid,
@@ -92,7 +98,7 @@ export async function GET(
           } : undefined
         },
         // Include saved course information if user is authenticated
-        savedCourses: includeSavedCourses && session && session.userId ? {
+        savedCourses: session && session.userId ? {
           where: {
             user_id: Number(session.userId)
           }
@@ -112,6 +118,11 @@ export async function GET(
 
     // Transform course data for response
     const transformedCourse = transformCourseForResponse(course)
+    
+    console.log('🔍 After transformation:', {
+      hasSavedCourses: !!transformedCourse.savedCourses,
+      savedCoursesLength: transformedCourse.savedCourses?.length || 0
+    })
 
     return NextResponse.json(transformedCourse)
   } catch (error) {
