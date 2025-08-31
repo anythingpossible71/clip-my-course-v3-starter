@@ -15,9 +15,9 @@ export default function HomePage() {
               <Image 
                 src="/applogo.png" 
                 alt="ClipMyCourse" 
-                width={40} 
-                height={40}
-                className="w-10 h-10"
+                width={219} 
+                height={48}
+                className="h-8 w-auto"
               />
             </div>
             <div className="flex items-center space-x-4">
@@ -41,9 +41,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Turn <span className="text-red-400">YouTube videos</span>
-              <br />
-              into <span className="text-red-400">online courses</span>
+              Turn YouTube videos into online courses
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Turn random YouTube scrolling into effective focused learning sessions. Create courses and track your progress takes just a few clicks.
@@ -179,11 +177,10 @@ export default function HomePage() {
               <Image 
                 src="/applogo.png" 
                 alt="ClipMyCourse" 
-                width={32} 
-                height={32}
-                className="w-8 h-8"
+                width={219} 
+                height={48}
+                className="h-6 w-auto"
               />
-              <span className="ml-2 text-gray-300">ClipMyCourse</span>
             </div>
             <div className="text-gray-400 text-sm">
               © 2024 ClipMyCourse. All rights reserved.
