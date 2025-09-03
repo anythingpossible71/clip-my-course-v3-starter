@@ -30,16 +30,14 @@ export default function TermsPage() {
           <h1 className="text-3xl font-bold mb-8">Terms of Use</h1>
           <p className="text-sm text-muted-foreground mb-8">Last Updated: December 2024</p>
 
-          {/* Age Requirement Banner - Very Prominent */}
-          <div className="bg-red-600 text-white p-6 rounded-lg mb-8 text-center border-4 border-red-800 shadow-lg">
-            <h2 className="text-2xl font-bold mb-3">⚠️ AGE RESTRICTION - LEGAL REQUIREMENT ⚠️</h2>
-            <p className="text-xl mb-2">
-              <strong>YOU MUST BE 16 YEARS OR OLDER TO USE THIS SERVICE</strong>
+          {/* Age Requirement Banner - Professional and Subtle */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
+            <h2 className="text-lg font-semibold text-blue-900 mb-2">Age Restriction - Legal Requirement</h2>
+            <p className="text-blue-800 mb-2">
+              <strong>You must be 16 years or older to use this Service.</strong>
             </p>
-            <p className="text-lg opacity-90">
-              By creating an account or using this service, you are legally confirming that you meet this age requirement.
-            </p>
-            <p className="text-sm mt-3 opacity-80">
+            <p className="text-sm text-blue-700">
+              By creating an account or using this service, you are legally confirming that you meet this age requirement. 
               We reserve the right to verify your age and terminate accounts of users who do not meet this requirement.
             </p>
           </div>
@@ -58,15 +56,6 @@ export default function TermsPage() {
               You must be at least 16 years old to use this Service. By using the Service, you represent and warrant 
               that you meet this age requirement and have the legal capacity to enter into these Terms.
             </p>
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-              <h3 className="font-semibold text-red-900 mb-2">Age Restriction - Legal Requirement:</h3>
-              <p className="text-red-800 text-sm">
-                <strong>You must be 16 years or older to use this Service.</strong> By creating an account, using the Service, 
-                or checking the "I agree to Terms of Use" checkbox during signup, you are legally confirming that you meet 
-                this age requirement. We reserve the right to verify your age and terminate accounts of users who do not meet 
-                this requirement.
-              </p>
-            </div>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
               <h3 className="font-semibold text-blue-900 mb-2">Age Limitation Justification:</h3>
               <p className="text-blue-800 text-sm">
@@ -216,8 +205,8 @@ export default function TermsPage() {
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">12. Limitation of Liability</h2>
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <p className="text-red-800 font-medium">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <p className="text-blue-800 font-medium">
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, 
                 CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR USE, INCURRED 
                 BY YOU OR ANY THIRD PARTY, WHETHER IN AN ACTION IN CONTRACT OR TORT, EVEN IF WE HAVE BEEN ADVISED OF 
@@ -429,9 +418,9 @@ export default function TermsPage() {
               <li>No access to Google Drive, Calendar, or other services</li>
               <li>OAuth tokens stored securely and encrypted</li>
             </ul>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-              <h3 className="font-semibold text-green-900 mb-2">Your Protection:</h3>
-              <p className="text-green-800 text-sm">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <h3 className="font-semibold text-blue-900 mb-2">Your Protection:</h3>
+              <p className="text-blue-800 text-sm">
                 We never sell your personal data. Third-party sharing is limited to essential service providers 
                 who are contractually bound to protect your data. You maintain full control over your information.
               </p>
@@ -468,9 +457,9 @@ export default function TermsPage() {
               <li>Detailed privacy controls for each analytics feature</li>
               <li>No analytics without explicit user consent</li>
             </ul>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-              <h3 className="font-semibold text-yellow-900 mb-2">Analytics Benefits:</h3>
-              <p className="text-yellow-800 text-sm">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <h3 className="font-semibold text-blue-900 mb-2">Analytics Benefits:</h3>
+              <p className="text-blue-800 text-sm">
                 Analytics help us create better features, fix bugs faster, and provide a more reliable service. 
                 Your privacy is protected through data anonymization and opt-out controls.
               </p>
@@ -479,7 +468,7 @@ export default function TermsPage() {
 
           <div className="mt-12 pt-8 border-t">
             <Link href="/">
-              <Button className="bg-red-600 hover:bg-red-700 text-white">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Home
               </Button>
