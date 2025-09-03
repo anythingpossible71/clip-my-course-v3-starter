@@ -22,7 +22,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">Welcome to Clip My Course</CardTitle>
-          <CardDescription className="text-base">
+          <CardDescription className="text-[0.8rem] leading-[1]">
             By signing in, you agree to our{" "}
             <Link href="/terms" className="text-primary hover:underline">
               Terms of Use
