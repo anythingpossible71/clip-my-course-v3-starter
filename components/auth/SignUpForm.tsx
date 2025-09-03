@@ -154,7 +154,7 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
           control={form.control}
           name="termsAgreement"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-start space-x-2">
+            <FormItem className="flex flex-row items-center space-x-2">
               <Checkbox
                 id="terms-agreement"
                 onCheckedChange={field.onChange}
@@ -162,16 +162,13 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
                 onBlur={field.onBlur}
                 onFocus={field.onFocus}
               />
-              <div className="space-y-1">
-                <FormLabel className="text-sm font-normal">
-                  I agree to the{" "}
-                  <Link href="/terms" className="text-primary hover:underline">
-                    Terms of Use
-                  </Link>
-                  , including the age requirement of 16+ years old
-                </FormLabel>
-                <FormMessage />
-              </div>
+              <FormLabel className="text-sm font-normal leading-none mt-0 py-0">
+                I'm 16+ years old. I read and agree to the{" "}
+                <Link href="/terms" className="text-primary hover:underline">
+                  terms of use
+                </Link>
+              </FormLabel>
+              <FormMessage />
             </FormItem>
           )}
         />

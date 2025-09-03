@@ -66,17 +66,6 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
                 Sign up
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
-              <Link href="/auth/forgot-password" className="text-primary hover:underline">
-                Forgot your password?
-              </Link>
-            </p>
-            <p className="text-xs text-muted-foreground">
-              By signing in, you agree to our{" "}
-              <Link href="/terms" className="text-primary hover:underline">
-                Terms of Use
-              </Link>
-            </p>
           </div>
         </CardContent>
       </Card>
