@@ -272,6 +272,188 @@ export default function TermsPage() {
             </ul>
           </section>
 
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">19. Account Management & Security</h2>
+            <h3 className="text-xl font-medium mb-3">Account Security Requirements</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Two-factor authentication may be required for enhanced security</li>
+              <li>Regular password updates may be enforced</li>
+              <li>Suspicious activity may trigger additional verification</li>
+              <li>You must use a strong, unique password for your account</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Account Suspension & Reactivation</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>We may suspend accounts for Terms violations or suspicious activity</li>
+              <li>Suspension criteria and duration will be communicated via email</li>
+              <li>Reactivation process requires verification of identity and compliance</li>
+              <li>Repeated violations may result in permanent account termination</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Multiple Account Restrictions</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>One account per person is allowed</li>
+              <li>Creating multiple accounts may result in suspension of all accounts</li>
+              <li>Business accounts may be allowed with prior written approval</li>
+            </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">20. Data Retention & Deletion</h2>
+            <h3 className="text-xl font-medium mb-3">Data Retention Periods</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li><strong>Account Data:</strong> Retained for 3 years after account deletion for legal compliance</li>
+              <li><strong>Course Content:</strong> Retained for 1 year after account deletion unless shared publicly</li>
+              <li><strong>Analytics Data:</strong> Aggregated and anonymized after 2 years</li>
+              <li><strong>Log Data:</strong> Retained for 90 days for security and debugging</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Data Deletion Process</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Complete data deletion occurs within 30 days of account deletion request</li>
+              <li>Publicly shared content may be retained if other users have saved it</li>
+              <li>Backup data is automatically deleted within 90 days</li>
+              <li>Legal holds may prevent deletion if required by law</li>
+            </ul>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <h3 className="font-semibold text-blue-900 mb-2">Legal Compliance:</h3>
+              <p className="text-blue-800 text-sm">
+                These retention periods comply with Israeli data protection laws and international standards. 
+                We retain data only as long as necessary for service provision, legal compliance, and security.
+              </p>
+            </div>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">21. Data Breach Notification</h2>
+            <h3 className="text-xl font-medium mb-3">Breach Detection & Response</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>We monitor systems 24/7 for security breaches and unauthorized access</li>
+              <li>Automated alerts trigger immediate investigation of suspicious activity</li>
+              <li>Security team responds within 1 hour of breach detection</li>
+              <li>Incident response plan follows industry best practices</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">User Notification</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li><strong>High Risk:</strong> Notification within 24 hours for sensitive data breaches</li>
+              <li><strong>Medium Risk:</strong> Notification within 72 hours for standard breaches</li>
+              <li><strong>Low Risk:</strong> Notification within 7 days for minor incidents</li>
+              <li>Notifications include breach details, affected data, and recommended actions</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Regulatory Reporting</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Israeli Privacy Protection Authority notified within 72 hours of significant breaches</li>
+              <li>International authorities notified as required by applicable laws</li>
+              <li>Public disclosure made when required by law or in public interest</li>
+            </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">22. User Data Rights & Export</h2>
+            <h3 className="text-xl font-medium mb-3">Right to Access</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>You can view all your personal data through your account dashboard</li>
+              <li>Request detailed data report by contacting support</li>
+              <li>Data access requests fulfilled within 30 days</li>
+              <li>No fees for reasonable data access requests</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Right to Export</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Export your course data in JSON, CSV, or PDF formats</li>
+              <li>Export includes all courses, lessons, progress, and settings</li>
+              <li>Data export requests fulfilled within 7 days</li>
+              <li>Exports are free and unlimited for active users</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Right to Correction</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Update your profile information at any time</li>
+              <li>Request correction of inaccurate data through support</li>
+              <li>Corrections made within 7 days of verification</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Right to Deletion</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Delete your account and all associated data</li>
+              <li>Deletion requests processed within 30 days</li>
+              <li>Confirmation sent when deletion is complete</li>
+              <li>Recovery possible within 30 days of deletion request</li>
+            </ul>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">23. Third-Party Data Sharing & Protection</h2>
+            <h3 className="text-xl font-medium mb-3">Service Providers</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li><strong>Hosting:</strong> Vercel/Netlify for application hosting (EU/US data centers)</li>
+              <li><strong>Database:</strong> SQLite local storage with optional cloud backup</li>
+              <li><strong>Email:</strong> Resend/SendGrid for transactional emails</li>
+              <li><strong>Analytics:</strong> Vercel Analytics for performance monitoring</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Data Protection Measures</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>All third-party providers sign Data Processing Agreements (DPAs)</li>
+              <li>Data encryption in transit and at rest</li>
+              <li>Regular security audits of third-party services</li>
+              <li>Immediate termination of providers who fail security standards</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">YouTube Integration</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>YouTube Data API v3 used for course creation</li>
+              <li>No personal data shared with YouTube beyond API requirements</li>
+              <li>YouTube's privacy policy applies to their services</li>
+              <li>We do not sell or share user data with YouTube</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">OAuth Providers</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>Google OAuth for authentication only</li>
+              <li>Minimal data requested: email and basic profile</li>
+              <li>No access to Google Drive, Calendar, or other services</li>
+              <li>OAuth tokens stored securely and encrypted</li>
+            </ul>
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+              <h3 className="font-semibold text-green-900 mb-2">Your Protection:</h3>
+              <p className="text-green-800 text-sm">
+                We never sell your personal data. Third-party sharing is limited to essential service providers 
+                who are contractually bound to protect your data. You maintain full control over your information.
+              </p>
+            </div>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">24. Analytics & Service Improvement</h2>
+            <h3 className="text-xl font-medium mb-3">Analytics Usage</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>We use analytics to improve service performance and user experience</li>
+              <li>Analytics data is aggregated and anonymized</li>
+              <li>No personal information is used in analytics</li>
+              <li>Analytics help us optimize features and fix technical issues</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Data Collected for Analytics</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li><strong>Performance:</strong> Page load times, error rates, system performance</li>
+              <li><strong>Usage:</strong> Feature usage patterns, navigation flows, button clicks</li>
+              <li><strong>Technical:</strong> Browser types, device information, network conditions</li>
+              <li><strong>Content:</strong> Course creation patterns, sharing statistics (anonymized)</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Analytics Controls</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>You can opt out of analytics through your account settings</li>
+              <li>Opting out does not affect service functionality</li>
+              <li>Analytics data is automatically deleted after 2 years</li>
+              <li>You can request deletion of your analytics data at any time</li>
+            </ul>
+            <h3 className="text-xl font-medium mb-3">Future Analytics Features</h3>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>We may introduce advanced analytics for course creators</li>
+              <li>All new analytics features will be opt-in</li>
+              <li>Detailed privacy controls for each analytics feature</li>
+              <li>No analytics without explicit user consent</li>
+            </ul>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+              <h3 className="font-semibold text-yellow-900 mb-2">Analytics Benefits:</h3>
+              <p className="text-yellow-800 text-sm">
+                Analytics help us create better features, fix bugs faster, and provide a more reliable service. 
+                Your privacy is protected through data anonymization and opt-out controls.
+              </p>
+            </div>
+          </section>
+
           <div className="mt-12 pt-8 border-t">
             <Link href="/">
               <Button className="bg-red-600 hover:bg-red-700 text-white">

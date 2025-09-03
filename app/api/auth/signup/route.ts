@@ -8,6 +8,12 @@ const signUpSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
   redirectUrl: z.string().optional(),
+  ageVerification: z.boolean().refine(val => val === true, {
+    message: "You must be at least 16 years old to use this service"
+  }),
+  termsAgreement: z.boolean().refine(val => val === true, {
+    message: "You must agree to the Terms of Use"
+  }),
 });
 
 export async function POST(request: NextRequest) {
@@ -22,7 +28,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email, password, redirectUrl } = validationResult.data;
+    const { email, password, redirectUrl, ageVerification, termsAgreement } = validationResult.data;
 
     // Check if user already exists
     const existingUser = await prisma.user.findUnique({

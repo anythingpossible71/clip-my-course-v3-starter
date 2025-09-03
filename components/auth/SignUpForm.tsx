@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Checkbox } from "@/components/ui/checkbox";
 import { UserPlus } from "lucide-react";
 
 const signUpSchema = z
@@ -23,6 +24,12 @@ const signUpSchema = z
     email: z.string().email("Invalid email address"),
     password: z.string().min(8, "Password must be at least 8 characters"),
     confirmPassword: z.string(),
+    ageVerification: z.boolean().refine(val => val === true, {
+      message: "You must be at least 16 years old to use this service"
+    }),
+    termsAgreement: z.boolean().refine(val => val === true, {
+      message: "You must agree to the Terms of Use"
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don&apos;t match",
@@ -47,6 +54,8 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
       email: "",
       password: "",
       confirmPassword: "",
+      ageVerification: false,
+      termsAgreement: false,
     },
   });
 
@@ -64,6 +73,8 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
           email: data.email,
           password: data.password,
           redirectUrl: redirectUrl,
+          ageVerification: data.ageVerification,
+          termsAgreement: data.termsAgreement,
         }),
       });
 
@@ -139,6 +150,50 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
               <FormControl>
                 <Input type="password" placeholder="Confirm your password" {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="ageVerification"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+              <div className="space-y-0.5">
+                <FormLabel className="text-base">Age Verification</FormLabel>
+                <p className="text-sm text-muted-foreground">
+                  You must be at least 16 years old to use this service.
+                </p>
+              </div>
+              <Checkbox
+                id="age-verification"
+                onCheckedChange={field.onChange}
+                checked={field.value}
+                onBlur={field.onBlur}
+                onFocus={field.onFocus}
+              />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="termsAgreement"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+              <div className="space-y-0.5">
+                <FormLabel className="text-base">Terms of Use</FormLabel>
+                <p className="text-sm text-muted-foreground">
+                  I agree to the Terms of Use.
+                </p>
+              </div>
+              <Checkbox
+                id="terms-agreement"
+                onCheckedChange={field.onChange}
+                checked={field.value}
+                onBlur={field.onBlur}
+                onFocus={field.onFocus}
+              />
               <FormMessage />
             </FormItem>
           )}
