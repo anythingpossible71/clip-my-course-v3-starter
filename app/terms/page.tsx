@@ -30,6 +30,20 @@ export default function TermsPage() {
           <h1 className="text-3xl font-bold mb-8">Terms of Use</h1>
           <p className="text-sm text-muted-foreground mb-8">Last Updated: December 2024</p>
 
+          {/* Age Requirement Banner - Very Prominent */}
+          <div className="bg-red-600 text-white p-6 rounded-lg mb-8 text-center border-4 border-red-800 shadow-lg">
+            <h2 className="text-2xl font-bold mb-3">⚠️ AGE RESTRICTION - LEGAL REQUIREMENT ⚠️</h2>
+            <p className="text-xl mb-2">
+              <strong>YOU MUST BE 16 YEARS OR OLDER TO USE THIS SERVICE</strong>
+            </p>
+            <p className="text-lg opacity-90">
+              By creating an account or using this service, you are legally confirming that you meet this age requirement.
+            </p>
+            <p className="text-sm mt-3 opacity-80">
+              We reserve the right to verify your age and terminate accounts of users who do not meet this requirement.
+            </p>
+          </div>
+
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
             <p>

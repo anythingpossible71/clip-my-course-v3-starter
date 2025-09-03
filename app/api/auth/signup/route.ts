@@ -8,9 +8,6 @@ const signUpSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
   redirectUrl: z.string().optional(),
-  termsAgreement: z.boolean().refine(val => val === true, {
-    message: "You must agree to the Terms of Use"
-  }),
 });
 
 export async function POST(request: NextRequest) {
@@ -25,7 +22,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email, password, redirectUrl, termsAgreement } = validationResult.data;
+    const { email, password, redirectUrl } = validationResult.data;
 
     // Check if user already exists
     const existingUser = await prisma.user.findUnique({

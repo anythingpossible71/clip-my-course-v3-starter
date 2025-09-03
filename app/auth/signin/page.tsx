@@ -21,8 +21,17 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Welcome Back</CardTitle>
-          <CardDescription>Sign in to your account to continue</CardDescription>
+          <CardTitle className="text-2xl">Welcome to Clip My Course</CardTitle>
+          <CardDescription className="text-base">
+            By signing in, you agree to our{" "}
+            <Link href="/terms" className="text-primary hover:underline">
+              Terms of Use
+            </Link>{" "}
+            and acknowledge the{" "}
+            <Link href="/terms" className="text-primary hover:underline">
+              Privacy Policy
+            </Link>
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {message === "password-reset" && (

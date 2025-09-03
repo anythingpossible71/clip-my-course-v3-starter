@@ -25,9 +25,6 @@ const signUpSchema = z
     email: z.string().email("Invalid email address"),
     password: z.string().min(8, "Password must be at least 8 characters"),
     confirmPassword: z.string(),
-    termsAgreement: z.boolean().refine(val => val === true, {
-      message: "You must agree to the Terms of Use"
-    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don&apos;t match",
@@ -52,7 +49,6 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
       email: "",
       password: "",
       confirmPassword: "",
-      termsAgreement: false,
     },
   });
 
@@ -70,7 +66,6 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
           email: data.email,
           password: data.password,
           redirectUrl: redirectUrl,
-          termsAgreement: data.termsAgreement,
         }),
       });
 
@@ -146,28 +141,6 @@ export function SignUpForm({ redirectUrl }: SignUpFormProps) {
               <FormControl>
                 <Input type="password" placeholder="Confirm your password" {...field} />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="termsAgreement"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-center space-x-2">
-              <Checkbox
-                id="terms-agreement"
-                onCheckedChange={field.onChange}
-                checked={field.value}
-                onBlur={field.onBlur}
-                onFocus={field.onFocus}
-              />
-              <FormLabel className="text-sm font-normal leading-none mt-0 py-0">
-                I'm 16+ years old. I read and agree to the{" "}
-                <Link href="/terms" className="text-primary hover:underline">
-                  terms of use
-                </Link>
-              </FormLabel>
               <FormMessage />
             </FormItem>
           )}
