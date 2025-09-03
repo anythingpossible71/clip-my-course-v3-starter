@@ -1,13 +1,26 @@
 # Terms of Use
 
-**Last Updated:** December 2024
+**Effective Date:** September 1, 2025  
+**Last Updated:** December 19, 2024  
+**Company:** Clip My Course  
+**Website:** https://clipmycourse.com
 
 ## 1. Acceptance of Terms
 
-By accessing or using Clip My Course ("Service"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not use the Service.
+By accessing and using https://clipmycourse.com or our services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
 
-## 2. Eligibility
+## 2. Service Description
 
+Clip My Course is an online course creation platform that allows users to:
+- Create educational courses from YouTube content
+- Organize learning materials into structured lessons
+- Track learning progress and completion
+- Share courses with other users
+- Build personal learning libraries
+
+## 3. Eligibility and Age Requirements
+
+### 3.1 Minimum Age
 You must be at least 16 years old to use this Service. By using the Service, you represent and warrant that you meet this age requirement and have the legal capacity to enter into these Terms.
 
 **Age Limitation Justification:** We set the minimum age at 16 because:
@@ -17,177 +30,303 @@ You must be at least 16 years old to use this Service. By using the Service, you
 - YouTube integration requires understanding of platform terms and content policies
 - Users may share courses publicly, requiring maturity to handle public content responsibly
 
-## 3. Accounts & Security
+### 3.2 Legal Capacity
+You must have the legal capacity to:
+- Enter into binding agreements
+- Use the Service in compliance with applicable laws
+- Accept responsibility for your actions and content
+- Understand and follow these Terms
 
-### Account Creation
-- You must provide accurate, current, and complete information when creating an account
-- You are responsible for maintaining the security of your account credentials
-- You may not share your account with others or allow others to access your account
+## 4. Account Creation and Management
 
-### Security Obligations
-- You must notify us immediately of any unauthorized use of your account
-- You are responsible for all activities that occur under your account
-- We use industry-standard security measures including bcrypt password hashing and JWT tokens
+### 4.1 Account Registration
+To use our services, you must:
+- Provide accurate, current, and complete information
+- Create a secure password
+- Verify your email address
+- Accept these Terms and our Privacy Policy
 
-## 4. Subscriptions, Billing & Payments
+### 4.2 Account Security
+You are responsible for:
+- Maintaining the security of your account credentials
+- Notifying us immediately of unauthorized access
+- All activities that occur under your account
+- Keeping your contact information updated
 
-Currently, this Service is free to use. We reserve the right to introduce paid features or subscriptions in the future. If we do so, we will provide notice and obtain your consent before charging any fees.
+### 4.3 Account Restrictions
+You may not:
+- Share your account with others
+- Allow others to access your account
+- Create multiple accounts for abusive purposes
+- Use automated systems to create accounts
 
-## 5. User Content & License
+## 5. User Content and License
 
-### Your Content
-- You retain ownership of content you create, including courses and course materials
-- You grant us a worldwide, non-exclusive, royalty-free license to use, store, and display your content to provide the Service
-- You represent that you have all necessary rights to grant this license
+### 5.1 Your Content Rights
+You retain ownership of:
+- Original course content you create
+- Lesson descriptions and notes
+- Course structures and organization
+- Personal learning materials
 
-### Course Sharing
-- You may choose to share your courses publicly using the Service's sharing features
-- Shared courses are accessible to anyone with the sharing link
-- You can control the visibility and sharing settings of your courses
+### 5.2 License to Us
+You grant us a worldwide, non-exclusive, royalty-free license to:
+- Use, store, and display your content to provide the Service
+- Process and analyze your content for service improvement
+- Backup and archive your content for data protection
+- Share your content according to your privacy settings
 
-### YouTube Integration
-- The Service integrates with YouTube to allow you to create courses from YouTube videos and playlists
-- You must comply with YouTube's Terms of Service when using this integration
-- We are not responsible for YouTube's content policies or any changes to YouTube's API
+### 5.3 Content Representations
+You represent and warrant that:
+- You have all necessary rights to your content
+- Your content does not infringe on third-party rights
+- Your content complies with applicable laws
+- Your content is appropriate for educational purposes
 
-## 6. Acceptable Use
+## 6. Course Sharing and Privacy
 
-### Prohibited Activities
-You may not use the Service to:
+### 6.1 Sharing Controls
+You control how your courses are shared:
+- Private courses (visible only to you)
+- Shared courses (accessible via sharing links)
+- Public courses (visible to all users)
+
+### 6.2 Sharing Responsibilities
+When sharing courses, you:
+- Maintain control over your content
+- Can modify or remove shared content
+- Are responsible for shared content compliance
+- Can revoke sharing access at any time
+
+### 6.3 Third-Party Access
+Shared courses may be accessed by:
+- Users with direct sharing links
+- Users who discover your courses through our platform
+- Search engines and indexing services (for public courses)
+
+## 7. YouTube Integration
+
+### 7.1 YouTube Content
+Our platform integrates with YouTube to:
+- Allow course creation from YouTube videos and playlists
+- Provide video playback functionality
+- Enable content discovery and organization
+- Support educational content creation
+
+### 7.2 YouTube Compliance
+You must comply with:
+- YouTube's Terms of Service
+- YouTube's Community Guidelines
+- Copyright and intellectual property laws
+- Fair use principles for educational content
+
+### 7.3 Our Limitations
+We are not responsible for:
+- YouTube's content policies or changes
+- YouTube's API modifications or restrictions
+- YouTube's terms of service enforcement
+- Content available on YouTube's platform
+
+## 8. Acceptable Use Policy
+
+### 8.1 Permitted Uses
+You may use our services for:
+- Creating educational content and courses
+- Organizing learning materials
+- Sharing knowledge with others
+- Personal and professional development
+- Educational research and study
+
+### 8.2 Prohibited Activities
+You may not use our services to:
 - Violate any applicable laws or regulations
 - Infringe on intellectual property rights
 - Share harmful, offensive, or inappropriate content
-- Attempt to gain unauthorized access to the Service or other users' accounts
-- Use the Service for commercial purposes without authorization
-- Reverse engineer or attempt to extract source code from the Service
+- Attempt to gain unauthorized access to our systems
+- Use automated tools to abuse our services
+- Reverse engineer or extract our source code
+- Distribute malware or harmful software
+- Engage in spam or unsolicited communications
 
-### Content Standards
-- All content must be appropriate for educational purposes
-- Content must not contain hate speech, violence, or illegal material
-- You are responsible for ensuring your content complies with applicable laws
+### 8.3 Content Standards
+All content must:
+- Be appropriate for educational purposes
+- Comply with applicable laws and regulations
+- Respect intellectual property rights
+- Not contain hate speech or violence
+- Be suitable for users 16 and older
 
-## 7. Intellectual Property
+## 9. Intellectual Property Rights
 
-### Our Rights
-- The Service, including its software, design, and content, is owned by us or our licensors
-- These Terms do not grant you any rights to our intellectual property beyond what is necessary to use the Service
+### 9.1 Our Rights
+We own or license:
+- Platform software and technology
+- Brand names, logos, and trademarks
+- Platform design and user interface
+- Proprietary features and functionality
+- Documentation and user guides
 
-### Your Rights
-- You retain ownership of your original content
-- You may use the Service to create and share educational content
-- You may not claim ownership of the Service's features or functionality
+### 9.2 Your Rights
+You retain rights to:
+- Original content you create
+- Personal data and information
+- Course materials and structures
+- Learning progress and notes
 
-## 8. Third-Party Services
+### 9.3 Third-Party Rights
+We respect third-party rights:
+- YouTube's content and intellectual property
+- Third-party software and libraries
+- User-generated content from other users
+- Copyright and trademark protections
 
-### YouTube Integration
-- The Service integrates with YouTube's Data API v3
-- YouTube's Terms of Service and Privacy Policy apply to your use of YouTube content
-- We are not responsible for YouTube's services or any changes to their API
+## 10. Privacy and Data Protection
 
-### OAuth Providers
-- The Service supports authentication through Google OAuth
-- These third-party providers have their own terms and privacy policies
-- We are not responsible for the practices of these third-party services
+### 10.1 Data Collection
+We collect and process:
+- Account information and credentials
+- Course content and learning data
+- Usage patterns and preferences
+- Technical information and analytics
 
-## 9. APIs & Rate Limits
+### 10.2 Data Protection
+We protect your data through:
+- Industry-standard security measures
+- Encryption and secure transmission
+- Access controls and authentication
+- Regular security audits and updates
 
-### API Usage
-- The Service provides RESTful APIs for course management
-- We reserve the right to implement rate limiting to ensure fair usage
-- Excessive API usage may result in temporary or permanent restrictions
+### 10.3 Your Privacy Rights
+You have rights to:
+- Access your personal data
+- Request data correction or deletion
+- Control data sharing and processing
+- Withdraw consent for data use
 
-### YouTube API
-- YouTube API usage is subject to YouTube's quotas and rate limits
-- We are not responsible for YouTube API limitations or changes
+## 11. Service Availability and Updates
 
-## 10. Beta Features & Changes
+### 11.1 Service Availability
+We strive to provide:
+- Reliable and consistent service
+- 24/7 platform availability
+- Fast response times and performance
+- Regular maintenance and updates
 
-- We may offer beta features that are still in development
-- Beta features may be unstable or change without notice
-- We reserve the right to modify, suspend, or discontinue any features of the Service
+### 11.2 Service Limitations
+Service may be affected by:
+- Scheduled maintenance and updates
+- Technical issues and outages
+- Third-party service dependencies
+- Network and infrastructure issues
 
-## 11. Disclaimers
+### 11.3 Updates and Changes
+We may update our services to:
+- Improve functionality and performance
+- Fix bugs and security issues
+- Add new features and capabilities
+- Ensure compliance with regulations
 
-### Service Availability
-- The Service is provided "as is" and "as available"
-- We do not guarantee uninterrupted access to the Service
-- We may perform maintenance that temporarily affects availability
+## 12. Termination and Account Closure
 
-### Content Accuracy
-- We do not verify the accuracy, completeness, or usefulness of user-generated content
-- Users are responsible for evaluating the quality and accuracy of course content
-- We are not liable for any errors or omissions in user content
+### 12.1 Your Right to Terminate
+You may close your account at any time by:
+- Contacting our support team
+- Using account deletion features
+- Requesting data removal
+- Canceling any active services
 
-## 12. Limitation of Liability
+### 12.2 Our Right to Terminate
+We may terminate accounts for:
+- Violation of these Terms
+- Abusive or harmful behavior
+- Repeated copyright violations
+- Failure to comply with policies
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR USE, INCURRED BY YOU OR ANY THIRD PARTY, WHETHER IN AN ACTION IN CONTRACT OR TORT, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+### 12.3 Effects of Termination
+Upon account termination:
+- Your access to services will end
+- Your content may be permanently deleted
+- Outstanding obligations remain enforceable
+- Certain provisions survive termination
 
-## 13. Indemnification
+## 13. Disclaimers and Limitations
 
-You agree to indemnify and hold harmless Clip My Course and its officers, directors, employees, and agents from and against any claims, damages, obligations, losses, liabilities, costs, or debt arising from your use of the Service or violation of these Terms.
+### 13.1 Service Disclaimers
+Our services are provided "as is":
+- We do not guarantee uninterrupted service
+- We do not guarantee specific learning outcomes
+- We do not verify user-generated content accuracy
+- We do not provide professional educational advice
 
-## 14. Termination
+### 13.2 Limitation of Liability
+To the maximum extent permitted by law:
+- We are not liable for indirect damages
+- We are not liable for consequential losses
+- We are not liable for lost profits or data
+- Our liability is limited to direct damages
 
-### Your Rights
-- You may terminate your account at any time by contacting us
-- Upon termination, your access to the Service will cease immediately
+### 13.3 Indemnification
+You agree to:
+- Defend us against claims arising from your use
+- Indemnify us for damages caused by your actions
+- Accept responsibility for your content
+- Cooperate with legal proceedings if necessary
 
-### Our Rights
-- We may terminate or suspend your account for violations of these Terms
-- We may terminate the Service or your access with reasonable notice
-- Upon termination, we may delete your account and associated data
+## 14. Governing Law and Disputes
 
-## 15. Governing Law; Dispute Resolution
+### 14.1 Governing Law
+These terms are governed by the laws of Israel, without regard to conflict of law principles.
 
-These Terms shall be governed by and construed in accordance with the laws of Israel. Any disputes arising from these Terms or your use of the Service shall be resolved through binding arbitration in accordance with the rules of the Israeli Institute of Commercial Arbitration (IICA) or similar Israeli arbitration provider.
+### 14.2 Dispute Resolution
+We encourage resolving disputes through:
+- Direct communication and negotiation
+- Support team assistance
+- Informal mediation if appropriate
+- Formal legal proceedings if necessary
 
-## 16. Export Controls
+### 14.3 Jurisdiction
+Disputes will be resolved in:
+- Israeli courts as primary jurisdiction
+- Courts of user's location where applicable
+- International arbitration if required
+- Alternative dispute resolution methods
 
-You may not use or export the Service in violation of applicable export laws and regulations. You represent that you are not located in a country that is subject to a U.S. Government embargo or that has been designated by the U.S. Government as a "terrorist supporting" country.
+## 15. Changes to Terms
 
-## 17. Notices; Contact
+### 15.1 Modification Rights
+We may modify these terms at any time by posting updated terms on our website.
 
-### Notices
-- We may provide notices through the Service, email, or other reasonable means
-- Notices are effective when sent or posted
+### 15.2 Notification of Changes
+We will notify you of material changes through:
+- Website announcements and updates
+- Email notifications to registered users
+- Account notifications and alerts
+- Policy page updates
 
-### Contact Information
-For questions about these Terms or the Service, please contact us at Avi@crunchycone.com.
+### 15.3 Acceptance of Changes
+Continued use of our services constitutes acceptance of new terms.
 
-## 18. Changes to These Terms
+## 16. Severability and Waiver
 
-- We may update these Terms from time to time
-- We will notify you of material changes through the Service or email
-- Your continued use of the Service after changes constitutes acceptance of the new Terms
-- We will indicate the date of the last update at the top of these Terms
+### 16.1 Severability
+If any provision of these terms is found to be unenforceable, the remaining provisions remain in full force and effect.
 
-## 19. Gaps & Recommendations
+### 16.2 Waiver
+Our failure to enforce any provision does not constitute a waiver of that provision or any other provision.
 
-Based on our analysis of the current implementation, we recommend addressing the following areas to improve legal defensibility:
+## 17. Entire Agreement
 
-### User Rights
-- ⚠️ **Account Deletion**: Implement a "Delete My Account" feature to satisfy GDPR/CCPA deletion rights
-- ⚠️ **Data Export**: Add "Export My Data" functionality to support Data Subject Access Requests (DSAR)
+These terms constitute the entire agreement between you and Clip My Course regarding our services, superseding any prior agreements or understandings.
 
-### Content Moderation
-- ⚠️ **Content Review**: Implement moderation tools and reporting mechanisms for user-generated content
-- ⚠️ **Community Guidelines**: Establish clear content policies and community standards
+## 18. Contact Information
 
-### Privacy & Security
-- ⚠️ **Data Retention**: Implement clear data retention policies and automatic data cleanup
-- ⚠️ **Privacy Policy**: Create a comprehensive privacy policy that aligns with these Terms
-- ⚠️ **Cookie Policy**: Expand cookie consent management beyond basic consent tracking
+If you have questions about these terms, please contact us:
 
-### Legal Compliance
-- ⚠️ **Israeli Law Specifics**: Ensure compliance with Israeli data protection and consumer protection laws
-- ⚠️ **Dispute Resolution**: Establish clear procedures for handling user disputes and complaints
-- ⚠️ **Age Verification**: Implement stronger age verification for users under 18
-
-### Service Features
-- ⚠️ **Refund Policy**: Establish clear policies for any future paid features
-- ⚠️ **Service Level Agreements**: Define expected service availability and performance standards
-- ⚠️ **Backup & Recovery**: Implement data backup and recovery procedures
+**Clip My Course**  
+**Address:** Israel, Ramat Gan  
+**Email:** support@crunchycone.com  
+**Website:** https://clipmycourse.com
 
 ---
 
-**Generated by Cursor from codebase context: 2024-12-19T18:30:00Z**
+*These Terms of Service were last updated on December 19, 2024.*

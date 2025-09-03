@@ -1,6 +1,9 @@
 # Privacy Policy
 
-**Effective Date: December 19, 2024**
+**Effective Date:** September 1, 2025  
+**Last Updated:** December 19, 2024  
+**Company:** Clip My Course  
+**Website:** https://clipmycourse.com
 
 ## 1. Introduction
 
@@ -9,6 +12,7 @@ This Privacy Policy describes how **Clip My Course** ("we," "our," or "us") coll
 **Contact Information:**
 - **Privacy Email**: privacy@crunchycone.com
 - **Service**: Clip My Course online course platform
+- **Address**: Israel, Ramat Gan
 
 ## 2. Information We Collect
 
@@ -100,113 +104,120 @@ Currently, our Service is free to use. If we introduce paid features in the futu
 ## 8. Security
 
 ### Security Measures
-- **Password Security**: bcrypt hashing with 10 salt rounds
-- **Authentication**: JWT tokens with appropriate expiry times
-- **Data Protection**: HTTP-only cookies, CSRF protection, SameSite policy
-- **Access Control**: Role-based access control (RBAC) for all operations
-- **Input Validation**: Zod schema validation for all user inputs
-- **Database Security**: Soft deletes, parameterized queries via Prisma ORM
+We implement industry-standard security measures including:
+- **Encryption**: Data encrypted in transit and at rest
+- **Authentication**: Secure password hashing with bcrypt
+- **Access Controls**: Role-based access control and session management
+- **Regular Audits**: Security assessments and vulnerability testing
 
-### Security Monitoring
-- 24/7 system monitoring for security threats
-- Automated alerts for suspicious activity
-- Regular security audits and updates
-- Incident response procedures
+### Data Protection
+We protect your data through:
+- **Secure Infrastructure**: Cloud security best practices
+- **Access Monitoring**: Logging and monitoring of data access
+- **Incident Response**: Procedures for security incidents
+- **Employee Training**: Security awareness and best practices
 
 ## 9. International Data Transfers
 
-### Global Infrastructure
-Our Service operates globally with data centers in multiple regions:
-- **Primary Regions**: United States and Europe
-- **Future Expansion**: Additional regions in Asia and other locations
-- **Data Processing**: Your data may be processed in countries outside your residence
+### Global Service
+Our platform serves users worldwide:
+- **Primary Infrastructure**: Located in multiple global regions
+- **Data Processing**: May occur in different countries
+- **Legal Compliance**: We comply with applicable data protection laws
+- **User Rights**: Protected regardless of geographic location
 
 ### Transfer Safeguards
-- **Data Processing Agreements**: All service providers sign DPAs
-- **Standard Contractual Clauses**: EU data transfers use appropriate safeguards
-- **Adequacy Decisions**: Where possible, we use countries with adequacy decisions
-- **Security Standards**: Consistent security measures across all regions
+We ensure secure data transfers through:
+- **Standard Contractual Clauses**: For EU data transfers
+- **Adequacy Decisions**: Where applicable
+- **Technical Safeguards**: Encryption and access controls
+- **Legal Protections**: Compliance with local regulations
 
-## 10. Your Rights
+## 10. Your Rights and Choices
 
 ### Data Access Rights
-- **View Your Data**: Access all your personal information through your account dashboard
-- **Request Reports**: Contact us for detailed data reports (fulfilled within 30 days)
-- **Update Information**: Modify your profile and account settings at any time
+You have the right to:
+- **Access**: Request information about data we collect
+- **Correction**: Update or correct inaccurate information
+- **Deletion**: Request deletion of your personal data
+- **Portability**: Export your data in a portable format
 
-### Data Control Rights
-- **Consent Withdrawal**: Withdraw consent for non-essential data processing
-- **Cookie Preferences**: Manage cookie settings through our consent banner
-- **Marketing Opt-Out**: Control marketing communications (when implemented)
+### Consent Management
+You can:
+- **Withdraw Consent**: Revoke consent for data processing
+- **Modify Preferences**: Change your privacy settings
+- **Opt-Out**: Decline non-essential data collection
+- **Manage Cookies**: Control cookie preferences
 
-### Data Portability & Deletion
-- **Data Export**: Request your data in portable formats (currently in development)
-- **Account Deletion**: Request complete account and data deletion (currently in development)
-- **Recovery Period**: 30-day recovery window after deletion requests
+### Data Requests
+To exercise your rights:
+- **Email**: privacy@crunchycone.com
+- **Subject**: Data Request
+- **Response Time**: Within 30 days
+- **Verification**: Identity verification required
 
 ## 11. Children's Privacy
 
-### Age Requirements
-- **Minimum Age**: You must be at least 16 years old to use our Service
-- **No Child Data**: We do not knowingly collect personal information from children under 16
-- **Age Verification**: We reserve the right to verify your age and terminate accounts of underage users
+### Age Restrictions
+Our services are for users 16 and older:
+- **Minimum Age**: 16 years old
+- **No Collection**: We do not knowingly collect data from children under 16
+- **Parental Consent**: Required for users under 18 in some jurisdictions
+- **Age Verification**: We may verify age through account creation
 
-### Educational Content
-Our Service involves creating and sharing educational content, which requires:
-- Understanding of copyright and intellectual property concepts
-- Maturity to handle public content sharing
-- Responsibility for educational content creation
+### Parental Rights
+Parents can:
+- **Monitor Usage**: Review their children's account activity
+- **Request Deletion**: Remove data for minors
+- **Contact Us**: Address privacy concerns
+- **Control Access**: Manage account settings
 
 ## 12. Changes to This Policy
 
 ### Policy Updates
-- We may update this Privacy Policy from time to time
-- Material changes will be communicated through the Service or email
-- Continued use after changes constitutes acceptance of the new policy
-- We will indicate the effective date at the top of this policy
+We may update this policy to:
+- **Reflect Changes**: New features or data practices
+- **Legal Compliance**: Meet regulatory requirements
+- **Improve Transparency**: Better explain our practices
+- **User Feedback**: Address user concerns
 
 ### Notification Methods
-- **Service Notifications**: Updates posted within the application
-- **Email Notifications**: Important changes communicated via email
-- **Consent Requirements**: New data uses may require additional consent
+We notify users of changes through:
+- **Website Updates**: Policy page modifications
+- **Email Notifications**: Direct communication to users
+- **Account Alerts**: In-app notifications
+- **Effective Date**: Clear indication of when changes take effect
 
 ## 13. Contact Information
 
-### Privacy Inquiries
-For questions about this Privacy Policy or your data:
-- **Email**: privacy@crunchycone.com
-- **Response Time**: We aim to respond within 48 hours
-- **Data Requests**: Submit formal requests through the contact email
+If you have questions about this Privacy Policy or our privacy practices, please contact us:
 
-### Support and Technical Issues
-For technical support or general questions:
-- **Service Issues**: Use the in-app support features
-- **Account Problems**: Contact through your account settings
+**Clip My Course**  
+**Address:** Israel, Ramat Gan  
+**Email:** privacy@crunchycone.com  
+**Website:** https://clipmycourse.com
 
-## 14. Gaps & Recommendations
+## 14. Additional Rights (California Residents)
 
-Based on our analysis of the current implementation, we recommend addressing the following areas to improve privacy compliance:
+If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA):
+- Right to know what personal information we collect and share
+- Right to delete your personal information
+- Right to opt-out of the sale of personal information
+- Right to non-discrimination for exercising your rights
 
-### User Rights Implementation
-- ⚠️ **Account Deletion**: Implement a "Delete My Account" feature to satisfy GDPR/CCPA deletion rights
-- ⚠️ **Data Export**: Add "Export My Data" functionality to support Data Subject Access Requests (DSAR)
-- ⚠️ **Consent Management**: Implement granular consent controls for different data processing activities
+To exercise these rights, contact us using the information above.
 
-### Data Processing Transparency
-- ⚠️ **Data Processing Records**: Maintain detailed records of data processing activities
-- ⚠️ **Impact Assessments**: Conduct Data Protection Impact Assessments for new features
-- ⚠️ **Breach Notification**: Implement automated data breach detection and notification systems
+## 15. Additional Rights (EU Residents)
 
-### Future Feature Preparation
-- ⚠️ **Advertising Infrastructure**: Prepare privacy-compliant advertising features with proper consent mechanisms
-- ⚠️ **Cross-Border Compliance**: Ensure all global regions meet local privacy requirements
-- ⚠️ **Third-Party Audits**: Regular privacy audits by independent third parties
+If you are an EU resident, you have additional rights under the General Data Protection Regulation (GDPR):
+- Right to erasure (right to be forgotten)
+- Right to data portability
+- Right to restrict processing
+- Right to object to processing
+- Right to lodge a complaint with supervisory authorities
 
-### Technical Implementation
-- ⚠️ **Data Minimization**: Implement data minimization principles in all new features
-- ⚠️ **Privacy by Design**: Integrate privacy controls into the development process
-- ⚠️ **Regular Reviews**: Quarterly privacy policy and implementation reviews
+To exercise these rights, contact us using the information above.
 
 ---
 
-*Generated by Cursor from codebase context: 2024-12-19T00:00:00Z*
+*This Privacy Policy was last updated on December 19, 2024.*
