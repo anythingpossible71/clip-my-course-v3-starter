@@ -44,6 +44,15 @@ export default function TermsPage() {
               You must be at least 16 years old to use this Service. By using the Service, you represent and warrant 
               that you meet this age requirement and have the legal capacity to enter into these Terms.
             </p>
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+              <h3 className="font-semibold text-red-900 mb-2">Age Restriction - Legal Requirement:</h3>
+              <p className="text-red-800 text-sm">
+                <strong>You must be 16 years or older to use this Service.</strong> By creating an account, using the Service, 
+                or checking the "I agree to Terms of Use" checkbox during signup, you are legally confirming that you meet 
+                this age requirement. We reserve the right to verify your age and terminate accounts of users who do not meet 
+                this requirement.
+              </p>
+            </div>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
               <h3 className="font-semibold text-blue-900 mb-2">Age Limitation Justification:</h3>
               <p className="text-blue-800 text-sm">
