@@ -30,6 +30,12 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
                 Sign in
               </Link>
             </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              By creating an account, you agree to our{" "}
+              <Link href="/terms" className="text-primary hover:underline">
+                Terms of Use
+              </Link>
+            </p>
           </div>
         </CardContent>
       </Card>

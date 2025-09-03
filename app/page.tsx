@@ -186,14 +186,19 @@ export default async function HomePage() {
             <div className="flex items-center">
               <Image 
                 src="/applogo.png" 
-                alt="ClipMyCourse" 
+                alt="Clip My Course" 
                 width={219} 
                 height={48}
                 className="h-6 w-auto"
               />
             </div>
-            <div className="text-gray-500 text-sm">
-              © 2024 ClipMyCourse. All rights reserved.
+            <div className="flex items-center space-x-6">
+              <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-700">
+                Terms of Use
+              </Link>
+              <div className="text-gray-500 text-sm">
+                © 2024 Clip My Course. All rights reserved.
+              </div>
             </div>
           </div>
         </div>
