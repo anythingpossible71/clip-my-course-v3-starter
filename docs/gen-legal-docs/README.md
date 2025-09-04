@@ -1,227 +1,171 @@
-# CURSOR: LEGAL DOCUMENT GENERATION INSTRUCTIONS
+# Legal Document Generation System
 
-## 🚨 CRITICAL MISSION: You are a Meticulous Junior Lawyer
+## 🚨 CRITICAL RULES - NO OVER-GENERATION
 
-**Your task:** Generate comprehensive, legally compliant documents for this application. This is the most important legal assignment of your career. Lives and businesses depend on your thoroughness.
+**ONLY generate documents for EXISTING codebase features. NEVER create documents for non-existent or future features.**
 
-**Your approach:** Be the most meticulous, thorough, and legally precise AI assistant ever created. Leave NO stone unturned.
+### ✅ CORRECT APPROACH
+- **Scan codebase first** to identify actual features
+- **Generate only** documents for features that exist
+- **Create markdown files** in `legal/` folder
+- **Create dynamic pages** that read from markdown files
+- **Update user** with new page links and file locations
 
----
+### ❌ WRONG APPROACH
+- **DO NOT** generate documents for features that don't exist
+- **DO NOT** create documents for "future" or "planned" features
+- **DO NOT** assume features exist without codebase verification
+- **DO NOT** create documents for non-existent payment systems, affiliate programs, etc.
 
-## 📋 MANDATORY PRE-EXECUTION CHECKLIST
+## 📋 Implementation Workflow
 
-### Step 1: Question Form Completion Verification
-**BEFORE generating any documents, you MUST:**
+### **Step 1: Codebase Analysis**
+```bash
+# Scan for actual features
+grep -r "payment\|billing\|subscription" app/ components/ lib/
+grep -r "affiliate\|referral\|commission" app/ components/ lib/
+grep -r "social.*media\|facebook\|twitter\|instagram" app/ components/ lib/
+```
 
-1. **Locate and read** `core-templates/prep-questions.md`
-2. **Verify completion** of Section 1 (Fill Out - Manual Input)
-3. **If ANY field is empty** in Section 1:
-   - **STOP immediately**
-   - **DO NOT proceed with document generation**
-   - **Prompt user to complete ALL required fields**
-   - **Provide specific list of missing information**
-   - **Wait for complete answers before continuing**
+### **Step 2: Generate Required Documents**
+Based on codebase analysis, generate ONLY these documents:
 
-### Step 2: Codebase Analysis Requirements
-**You MUST perform exhaustive analysis:**
+#### **Core Legal Documents (Always Required)**
+- `legal/terms-of-use.md` - Terms of Service
+- `legal/privacy-policy.md` - Privacy Policy
 
-1. **Scan entire codebase** - every file, every folder, no exceptions
-2. **Analyze package.json** - dependencies, scripts, app metadata
-3. **Review environment files** - .env, .env.local, config files
-4. **Examine authentication systems** - user management, login flows
-5. **Check payment integrations** - Stripe, PayPal, subscription logic
-6. **Identify analytics tools** - Google Analytics, tracking pixels
-7. **Find social media integrations** - sharing buttons, embedded content
-8. **Detect affiliate programs** - referral links, UTM parameters
-9. **Analyze e-commerce features** - shopping carts, product catalogs
-10. **Review user content systems** - file uploads, content creation
-11. **Check cookie usage** - session management, preferences
-12. **Identify third-party services** - APIs, external integrations
+#### **Conditional Documents (Only if features exist)**
+- `legal/cookie-policy.md` - Only if cookies are used
+- `legal/dmca-policy.md` - Only if user content is hosted
+- `legal/general-disclaimer.md` - Only if disclaimers are needed
 
-**Time requirement:** This analysis MUST take as long as necessary. No shortcuts. No assumptions.
+#### **Documents to NEVER Generate (Unless explicitly exist)**
+- ❌ Returns & Refunds Policy (no payment system)
+- ❌ Affiliate Disclosure (no affiliate program)
+- ❌ Shipping Policy (no physical products)
+- ❌ Warranty Policy (no hardware/software warranties)
 
----
+### **Step 3: Create Dynamic Pages**
+For each markdown file, create a corresponding page:
 
-## 🎯 DOCUMENT GENERATION PROTOCOL
+```typescript
+// app/[page-name]/page.tsx
+import { readFileSync } from 'fs'
+import { MarkdownRenderer } from '@/components/ui/markdown-renderer'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
-### Phase 1: Data Collection & Verification
-1. **Extract from codebase** all information listed in Section 3 (Auto-Detected)
-2. **Cross-reference** with Section 2 (Requires Confirmation) data
-3. **Verify accuracy** of all auto-detected information
-4. **Flag any discrepancies** or unclear findings
+export default function [PageName]Page() {
+  const markdown = readFileSync('./legal/[filename].md', 'utf-8')
+  
+  return (
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-6">
+          <Link href="/">
+            <Button variant="outline">← Back to Home</Button>
+          </Link>
+        </div>
+        
+        <MarkdownRenderer 
+          content={markdown}
+          className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-strong prose-a:text-primary hover:prose-a:text-primary/80"
+        />
+      </div>
+    </div>
+  )
+}
+```
 
-### Phase 2: Template Selection & Customization
-1. **Select appropriate templates** based on detected features
-2. **Customize each template** with extracted and confirmed data
-3. **Replace ALL variables** with actual application information
-4. **Ensure legal compliance** for detected jurisdictions and industries
+### **Step 4: Update User Documentation**
+After implementation, provide the user with:
 
-### Phase 3: Quality Assurance
-1. **Review each document** for completeness
-2. **Verify all variables** are properly replaced
-3. **Check legal accuracy** against detected features
-4. **Ensure consistency** across all documents
+1. **List of new page URLs**
+2. **Location of markdown files**
+3. **Instructions for editing content**
 
----
+## 🔍 Feature Detection Examples
 
-## 📄 REQUIRED DOCUMENTS (Generate ALL That Apply)
+### **✅ Features That Exist (Generate Documents)**
+```typescript
+// Found in codebase - generate cookie policy
+import { CookieConsent } from "@/components/cookie-consent"
 
-### 🚨 CRITICAL RULE: ONLY Generate Required Documents
+// Found in codebase - generate DMCA policy  
+const userContent = await prisma.course.findMany()
 
-**Cursor MUST follow this rule strictly:**
-- **ONLY generate documents that are REQUIRED based on codebase analysis**
-- **NEVER generate documents for features that don't exist**
-- **NEVER create "just in case" or "future-proof" documents**
-- **NEVER assume features exist - verify through exhaustive codebase analysis**
+// Found in codebase - generate disclaimer
+<div className="disclaimer">Content for educational purposes only</div>
+```
 
-### Universal Requirements (Generate for EVERY app):
-1. **Privacy Policy** - Based on detected data collection methods
-2. **Terms of Service** - Based on detected service features
-3. **General Disclaimer** - Based on detected business type
+### **❌ Features That DON'T Exist (Skip Documents)**
+```typescript
+// NOT found in codebase - skip returns policy
+// No payment processing, no refunds
 
-### Conditional Requirements (Generate ONLY if detected):
-4. **Cookie Policy** - ONLY if cookies, analytics, or tracking detected
-5. **Affiliate Disclosure** - ONLY if affiliate programs or sponsored content detected
-6. **Returns & Refunds** - ONLY if e-commerce or payment processing detected
-7. **DMCA Policy** - ONLY if user-generated content or file uploads detected
+// NOT found in codebase - skip affiliate disclosure  
+// No referral programs, no commissions
 
-### 🚫 Documents NOT to Generate (Unless Detected):
-- **E-commerce Policy** - Only if actual e-commerce features exist
-- **Subscription Terms** - Only if subscription services detected
-- **Payment Processing Policy** - Only if payment systems detected
-- **Social Media Policy** - Only if social media integrations detected
-- **Analytics Policy** - Only if analytics services detected
-- **Advertising Policy** - Only if advertising features detected
+// NOT found in codebase - skip shipping policy
+// No physical products, no delivery
+```
 
-### 🔍 Verification Process:
-Before generating ANY document:
-1. **Exhaustive codebase search** for the specific feature
-2. **Multiple verification methods** (grep, file search, code analysis)
-3. **Clear evidence** that the feature exists and is implemented
-4. **Documentation** of where and how the feature is used
-5. **User confirmation** if any ambiguity exists
+## 📁 File Structure After Implementation
 
-**Example of CORRECT approach:**
-- ✅ "Cookies detected in codebase: authentication, consent, session management → Generate Cookie Policy"
-- ❌ "Might have cookies in the future → Generate Cookie Policy anyway"
+```
+legal/                           ← 📁 Legal Documents (Markdown)
+├── terms-of-use.md             ← 📄 Terms of Use
+├── privacy-policy.md           ← 📄 Privacy Policy
+├── general-disclaimer.md       ← 📄 General Disclaimer
+├── cookie-policy.md            ← 📄 Cookie Policy
+└── dmca-policy.md              ← 📄 DMCA Policy
 
-**Example of INCORRECT approach:**
-- ❌ "Generate all possible documents to be safe"
-- ❌ "Create documents for features that might exist"
-- ❌ "Assume features exist without verification"
+app/                             ← 📁 Dynamic Pages
+├── terms/page.tsx              ← 🌐 /terms (reads terms-of-use.md)
+├── privacy/page.tsx            ← 🌐 /privacy (reads privacy-policy.md)
+├── disclaimer/page.tsx         ← 🌐 /disclaimer (reads general-disclaimer.md)
+├── cookies/page.tsx            ← 🌐 /cookies (reads cookie-policy.md)
+└── dmca/page.tsx               ← 🌐 /dmca (reads dmca-policy.md)
+```
 
----
+## 🎯 User Instructions After Implementation
 
-## 🔍 MANDATORY ANALYSIS CHECKPOINTS
+### **New Legal Pages Available:**
+- **Terms of Use:** `/terms`
+- **Privacy Policy:** `/privacy`
+- **General Disclaimer:** `/disclaimer`
+- **Cookie Policy:** `/cookies`
+- **DMCA Policy:** `/dmca`
 
-### Company Information Analysis:
-- [ ] Company name from package.json, app metadata, about pages
-- [ ] Website URL from environment, config, or app settings
-- [ ] Contact information from footer, contact pages, config files
-- [ ] Business address from about pages, contact information
+### **Where to Edit Content:**
+1. **Open the `legal/` folder** in your project
+2. **Edit any `.md` file** (e.g., `terms-of-use.md`)
+3. **Save the file**
+4. **Refresh the corresponding page** in your browser
+5. **Changes appear instantly!** ✨
 
-### Technical Feature Analysis:
-- [ ] User authentication systems and account creation
-- [ ] Payment processing and subscription management
-- [ ] E-commerce capabilities and shopping features
-- [ ] Analytics and tracking implementations
-- [ ] Social media integrations and sharing
-- [ ] Cookie usage and session management
-- [ ] Third-party service integrations
-- [ ] User content creation and management
+### **Example Workflow:**
+1. **Edit:** `legal/terms-of-use.md`
+2. **Save file**
+3. **Visit:** `http://localhost:3000/terms`
+4. **See changes immediately**
 
-### Legal Compliance Analysis:
-- [ ] Data collection methods and personal information handling
-- [ ] Privacy controls and user rights
-- [ ] Geographic targeting and jurisdiction implications
-- [ ] Industry-specific legal requirements
+## 🚫 Prohibited Actions
 
----
+- **NEVER** generate documents for non-existent features
+- **NEVER** assume future features will exist
+- **NEVER** create documents without codebase verification
+- **NEVER** generate more than 5 legal documents total
+- **ALWAYS** verify features exist before generating documents
 
-## ⚠️ LEGAL COMPLIANCE REQUIREMENTS
+## ✅ Success Criteria
 
-### Privacy Laws (GDPR, CCPA, etc.):
-- **Data collection disclosure** - What, why, how long
-- **User rights** - Access, deletion, portability
-- **Third-party sharing** - Analytics, advertising, services
-- **Consent mechanisms** - Cookie banners, opt-ins
-
-### Business Protection:
-- **Liability limitations** - Service disclaimers, user obligations
-- **Intellectual property** - Copyright, trademarks, user content
-- **Payment terms** - Refunds, cancellations, disputes
-- **Service limitations** - Availability, support, modifications
-
----
-
-## 🚫 ABSOLUTE PROHIBITIONS
-
-1. **NEVER generate documents** without complete question form
-2. **NEVER skip codebase analysis** - must be exhaustive
-3. **NEVER assume information** - verify everything
-4. **NEVER use generic templates** - must be fully customized
-5. **NEVER ignore legal requirements** - compliance is mandatory
-6. **NEVER rush the process** - thoroughness over speed
-7. **NEVER generate documents for non-existent features** - only create what's required
-8. **NEVER create "future-proof" documents** - stick to current codebase reality
-9. **NEVER assume features exist** - verify through multiple code analysis methods
-10. **NEVER over-generate** - quality over quantity, relevance over completeness
-
----
-
-## ✅ SUCCESS CRITERIA
-
-### Document Generation Complete When:
-- [ ] All required documents generated
-- [ ] All variables properly replaced with actual data
-- [ ] All detected features properly addressed
-- [ ] Legal compliance verified for detected jurisdictions
-- [ ] User has reviewed and approved all documents
-- [ ] Documents are ready for immediate implementation
+After implementation, the user should have:
+1. **5 or fewer legal documents** (based on actual features)
+2. **Dynamic pages** that read from markdown files
+3. **Clear instructions** on where to find and edit files
+4. **Working system** where editing MD files updates live pages
 
 ---
 
-## 🎯 FINAL INSTRUCTION
-
-**Remember:** You are a meticulous junior lawyer working on the most important case of your career. Every detail matters. Every legal requirement must be met. Every feature must be properly addressed. 
-
-**Take your time. Be thorough. Be precise. Be legally impeccable.**
-
-**The future of this business depends on your attention to detail.**
-
----
-
-## ⚠️ FINAL WARNING: DOCUMENT GENERATION RULE
-
-### 🚨 THE MOST IMPORTANT RULE:
-
-**ONLY GENERATE DOCUMENTS THAT ARE ACTUALLY REQUIRED BASED ON YOUR CODEBASE ANALYSIS.**
-
-**What this means:**
-- ✅ **DO generate** documents for features you can PROVE exist in the code
-- ❌ **DON'T generate** documents for features you think might exist
-- ❌ **DON'T generate** documents "just to be safe"
-- ❌ **DON'T generate** documents for future features
-- ❌ **DON'T generate** documents because they're common in similar apps
-
-**Verification requirement:**
-- You must have **concrete evidence** from the codebase
-- You must be able to **point to specific files/code** that implement the feature
-- You must **document your findings** in the prep questions
-- If in doubt, **ASK the user** before generating
-
-**Example of what NOT to do:**
-- "This is an educational app, so I'll generate an E-commerce Policy just in case"
-- "Most apps have analytics, so I'll generate an Analytics Policy"
-- "Better safe than sorry - I'll generate all possible documents"
-
-**Example of what TO do:**
-- "I found cookie consent code in components/cookie-consent.tsx → Generate Cookie Policy"
-- "I found YouTube API integration in lib/utils/youtube-helpers.ts → Generate DMCA Policy"
-- "No payment processing detected in codebase → Do NOT generate Returns & Refunds Policy"
-
-**Remember:** It's better to generate **FEWER, ACCURATE documents** than to generate **MORE, IRRELEVANT documents**.
-
----
-
-*Generated documents will be saved in the `generated-docs/` folder with clear naming conventions and metadata.*
+**Remember:** When in doubt, generate FEWER documents rather than more. It's better to have 3 accurate documents than 7 incorrect ones.

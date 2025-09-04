@@ -3,9 +3,9 @@ import { MarkdownRenderer } from '@/components/ui/markdown-renderer'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function PrivacyPage() {
+export default function DMCAPage() {
   // Read markdown file at build time
-  const markdown = readFileSync('./legal/privacy-policy.md', 'utf-8')
+  const markdown = readFileSync('./legal/dmca-policy.md', 'utf-8')
   
   return (
     <div className="min-h-screen bg-background p-4">
@@ -24,3 +24,4 @@ export default function PrivacyPage() {
     </div>
   )
 }
+

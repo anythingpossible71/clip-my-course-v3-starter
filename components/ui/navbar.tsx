@@ -24,6 +24,7 @@ export function Navbar({
 }: NavbarProps) {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   // Check if we're in edit/create mode (create-course page)
@@ -36,6 +37,7 @@ export function Navbar({
   const isSharedPage = pathname?.startsWith('/shared');
 
   useEffect(() => {
+    setMounted(true);
     const fetchCurrentUser = async () => {
       try {
         const response = await fetch('/api/auth/me');
@@ -75,6 +77,23 @@ export function Navbar({
       window.removeEventListener('focus', handleFocus);
     };
   }, []);
+
+  // Don't render until mounted to prevent hydration mismatches
+  if (!mounted) {
+    return (
+      <header className={`border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40 ${className}`}>
+        <div className="flex items-center justify-between px-5 py-4 w-full">
+          <div className="flex items-center">
+            <div className="h-8 w-32 bg-gray-200 animate-pulse rounded"></div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="h-10 w-20 bg-gray-200 animate-pulse rounded"></div>
+            <div className="h-10 w-24 bg-gray-200 animate-pulse rounded"></div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className={`border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40 ${className}`}>

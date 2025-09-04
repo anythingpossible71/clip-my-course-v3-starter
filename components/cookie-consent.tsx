@@ -21,6 +21,7 @@ export function CookieConsent({
   const [isOpen, setIsOpen] = useState(false);
   const [hide, setHide] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   const updateConsent = async (consented: boolean) => {
     try {
@@ -103,11 +104,12 @@ export function CookieConsent({
   };
 
   useEffect(() => {
+    setMounted(true);
     checkConsent();
   }, []);
 
-  // Don't render anything while loading
-  if (loading) {
+  // Don't render anything while loading or not mounted
+  if (loading || !mounted) {
     return null;
   }
 

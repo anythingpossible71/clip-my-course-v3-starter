@@ -199,6 +199,15 @@ export default async function HomePage() {
               <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">
                 Privacy Policy
               </Link>
+              <Link href="/cookies" className="text-sm text-gray-500 hover:text-gray-700">
+                Cookie Policy
+              </Link>
+              <Link href="/disclaimer" className="text-sm text-gray-500 hover:text-gray-700">
+                Disclaimer
+              </Link>
+              <Link href="/dmca" className="text-sm text-gray-500 hover:text-gray-700">
+                DMCA Policy
+              </Link>
               <div className="text-gray-500 text-sm">
                 © 2024 Clip My Course. All rights reserved.
               </div>
